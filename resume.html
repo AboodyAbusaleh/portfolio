@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Abu Saleh</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* This wrapper centers the PDF on the screen */
+        .pdf-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px; /* Adds breathing room around the PDF */
+            background-color: #f8f9fa; /* Light grey background to make the resume pop */
+            min-height: calc(100vh - 70px); /* Ensures background fills the screen */
+        }
+
+        /* This controls the actual size of the PDF viewer */
+        .pdf-container {
+            width: 100%;
+            max-width: 900px; /* Stops it from getting too wide on big screens */
+            height: 80vh;     /* Takes up 80% of the viewport height */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Nice shadow for depth */
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">ABU SALEH.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="honors.html">Honors & Certifications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pdf-wrapper">
+        <div class="pdf-container">
+            <iframe src="resume.pdf" title="Resume">
+                <p>Your browser does not support PDFs. 
+                    <a href="resume.pdf">Download the Resume</a>.
+                </p>
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>
