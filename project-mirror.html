@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mira | Abu Saleh</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Responsive Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">ABU SALEH.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <a href="projects.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); margin-bottom: 30px; font-weight: 500;">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <header style="margin-bottom: 30px; text-align: center;">
+            <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">
+                Mira
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+               Smart mirror that unfogs itself using heating fans and automatic wipers as well as showing the time, weather, and date.
+            </p>
+        </header>
+
+      
+
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <div class="card" style="margin-bottom: 30px;">
+                <h3 style="margin-bottom: 15px; color: var(--accent-blue);">The Challenge</h3>
+                <p class="card-desc">
+                    After a hot shower, the annoying thing that always annyos you is the foggy mirror that you can't see yourself properly in. For this, me and my time desgined a mirror that prevents fogging through hot fans as well as wipers that wipe whatever water condesned on the mirror surface as well as showing important information about your day such as time, weather, and date.
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="full mirror.jpg" alt="Description of the image">
+            </div>            
+            
+
+            <div class="card" style="margin-bottom: 30px;">
+                <h3 style="margin-bottom: 15px; color: var(--accent-blue);">My part</h3>
+                <p class="card-desc" style="margin-bottom: 15px;">
+                   I was responsible for the power subsystem design as well as the temperature sensor integration, the hot air fans, and the stepper motor.
+                </p>
+                <ul style="list-style: disc; margin-left: 20px; color: var(--text-primary); font-size: 0.95rem;">
+                    <li style="margin-bottom: 10px;">Designing a schematic of the ESP32 MCU and 12 V power subsystem as well a DHT 22 temperature sensor and an LCD
+screen, then designing the PCB layout to be used producing the final product.</li>
+                    <li style="margin-bottom: 10px;">Soldering sensors like DHT22 and peripherals like LCD screen, and heating fans to the ESP32 control board for assembly.</li>
+                    <li style="margin-bottom: 10px;">Implementing the wiring of the Stepper motor and 12V fans and controlling them using a relay and coding them.</li>
+                </ul>
+            </div>
+            <div class="local-video-container">
+                <video controls playsinline>
+                    <source src="mira.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="image-container">  
+                <img src="wiring.jpg" alt="Description of the image">
+            </div>
+            
+             <div class="image-container">  
+                <img src="schematics.png" alt="Description of the image">
+            </div>
+
+             <div class="image-container">  
+                <img src="pcbLayout.png" alt="Description of the image">
+            </div>
+
+
+
+   
+
+        </div>
+
+    </div>
+
+    <footer style="margin-top: 60px;">
+        <p>&copy; 2025 Abd AlRahman Abu Saleh</p>
+    </footer>
+
+</body>
+</html>

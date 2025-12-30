@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECG | Abu Saleh</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Responsive Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">ABU SALEH.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <a href="projects.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); margin-bottom: 30px; font-weight: 500;">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <header style="margin-bottom: 30px; text-align: center;">
+            <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">
+                Mira
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                ECG signal capturing and processing on MATLAB.
+            </p>
+        </header>
+
+      
+
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <div class="card" style="margin-bottom: 30px;">
+                <h3 style="margin-bottom: 15px; color: var(--accent-blue);">Briefly</h3>
+                <p class="card-desc">
+                    Three opamps that capture that ECG signal from the body and filter it out through three different filters including low pass and high pass filter, then processing these signals on MATLAB digitally.
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="ECG.jpg" alt="Description of the image">
+            </div>            
+            
+
+            <div class="card" style="margin-bottom: 30px;">
+                <h3 style="margin-bottom: 15px; color: var(--accent-blue);">My part</h3>
+                <p class="card-desc" style="margin-bottom: 15px;">
+                     I designed ECG signal capturing circuit as well as processing the signal on MATLAB.
+                </p>
+                <ul style="list-style: disc; margin-left: 20px; color: var(--text-primary); font-size: 0.95rem;">
+                    <li style="margin-bottom: 10px;">Designed active op-amps filters including low pass and high pass filters to collect ECG signal through electrode robes. The lowpass filter was used to filter out the DC component of the signal while the high pass filter was used to filter high unwanted signals.</li>
+                    <li style="margin-bottom: 10px;">Collected and processed the digital ECG signal in MatLab through a digital low-pass filter to reduce the noise in the ECG
+                    signal. Removed the 60 Hz interference by modifying the Fourier coefficients.</li>
+                </ul>
+            </div>
+     
+            <div class="image-container">  
+                <img src="opamp.jpg" alt="Description of the image">
+            </div>
+            
+             <div class="image-container">  
+                <img src="ana1.png" alt="Description of the image">
+            </div>
+
+             <div class="image-container">  
+                <img src="ana2.png" alt="Description of the image">
+            </div>
+
+
+
+   
+
+        </div>
+
+    </div>
+
+    <footer style="margin-top: 60px;">
+        <p>&copy; 2025 Abd AlRahman Abu Saleh</p>
+    </footer>
+
+</body>
+</html>
