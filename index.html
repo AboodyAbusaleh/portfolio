@@ -3,412 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abd AlRahman Abu Saleh</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Resume | Abd AlRahman Abu Saleh</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- BLINKING CURSOR & TYPING --- */
-        .typing-effect {
-            cursor: pointer;
-            position: relative;
-            display: inline-block;
-            border-bottom: 2px dashed rgba(49, 130, 206, 0.3);
-        }
-        .typing-effect::after {
-            content: '|';
-            position: absolute;
-            right: -10px;
-            color: var(--accent-blue);
-            animation: blink 0.75s step-end infinite;
-            opacity: 0;
-        }
-        .typing-active::after { opacity: 1; }
-        @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
+        /* --- GLOBAL & THEME VARIABLES (MATCHING INDEX.HTML) --- */
+        :root {
+            /* Light Theme */
+            --primary-dark: #2B4C7E;
+            --primary-mid: #567EBB;
+            --primary-light: #AECBEB;
+            --bg-page: #F0F4F8; 
+            --bg-card: #ffffff;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --shadow-color: rgba(43, 76, 126, 0.1);
+            --gradient: linear-gradient(135deg, #2B4C7E 0%, #567EBB 100%);
         }
 
-        /* --- CLICK HINT ARROW --- */
-        .click-hint-container {
-            position: absolute;
-            top: -40px; 
-            left: 50%;
-            transform: translateX(-110px); 
-            font-size: 1rem;
-            color: var(--accent-blue);
-            font-family: 'Courier New', Courier, monospace;
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-            animation: gentle-bounce 2s infinite;
-        }
-        .hint-hidden { opacity: 0 !important; animation: none !important; }
-        @keyframes gentle-bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateX(-110px) translateY(0);}
-            40% {transform: translateX(-110px) translateY(-10px);}
-            60% {transform: translateX(-110px) translateY(-5px);}
+        /* Dark Theme */
+        body.dark-mode {
+            --primary-dark: #AECBEB; 
+            --primary-mid: #567EBB;
+            --primary-light: #2d3748;
+            --bg-page: #121212; 
+            --bg-card: #1e1e1e; 
+            --text-primary: #e2e8f0;
+            --text-secondary: #a0aec0;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --gradient: linear-gradient(135deg, #567EBB 0%, #AECBEB 100%);
         }
 
-        /* --- FADE IN ANIMATIONS --- */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in-card {
-            opacity: 0;
-            animation: fadeUp 0.8s ease-out forwards;
-        }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.5s; }
-        .delay-3 { animation-delay: 0.8s; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        html { font-size: 14px; }
 
-        /* --- DYNAMIC NEURAL NETWORK --- */
-        .network-container {
-            position: relative;
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 15px 20px; 
+            position: sticky; top: 0; 
+            background: var(--bg-page);
+            backdrop-filter: blur(10px); z-index: 1000; 
+            border-bottom: 1px solid var(--shadow-color);
+            transition: background-color 0.3s;
             width: 100%;
-            max-width: 800px; /* Wider container */
-            height: 550px;    /* Taller container for more space */
-            margin: 40px auto;
+        }
+        .nav-container {
+            display: flex; 
+            align-items: center;
+            justify-content: space-between; 
+            width: 100%; 
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .nav-controls { display: flex; align-items: center; gap: 20px; }
+
+        #theme-toggle {
+            background: none; border: none; cursor: pointer; font-size: 1.3rem;
+            color: var(--text-primary); transition: transform 0.3s;
+        }
+        #theme-toggle:hover { transform: rotate(15deg); color: var(--primary-mid); }
+
+        .cat-gif-icon { width: 40px; height: 40px; object-fit: contain; transition: opacity 0.3s; }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 600; color: var(--text-secondary); transition: 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-mid); }
+
+        /* --- PDF VIEWER STYLES --- */
+        .pdf-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            background-color: var(--bg-page); /* Dynamic Background */
+            min-height: calc(100vh - 70px);
+            transition: background-color 0.3s;
         }
 
-        #networkCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .pdf-container {
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            box-shadow: 0 10px 40px var(--shadow-color); /* Dynamic Shadow */
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-card); /* Dynamic Card BG */
+            border: 1px solid var(--shadow-color);
+        }
+
+        iframe {
             width: 100%;
             height: 100%;
-            z-index: 0; /* Behind the nodes */
-            pointer-events: none;
-        }
-
-        .neural-node {
-            position: absolute; /* Allows JS to move it */
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: white;
-            border: 2px solid #cbd5e0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            /* Only animate transform and colors, NOT top/left to avoid jitter */
-            transition: transform 0.3s, border-color 0.3s, color 0.3s; 
-            z-index: 2; /* On top of canvas */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            /* Center the anchor point for easier calculation */
-            transform: translate(-50%, -50%); 
-        }
-
-        .neural-node i { font-size: 1.2rem; margin-bottom: 3px; }
-
-        .neural-node:hover {
-            transform: translate(-50%, -50%) scale(1.15); /* Keep translate, add scale */
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-            z-index: 3;
-            cursor: pointer;
-        }
-
-        .neural-node.active-node {
-            background: var(--gradient);
             border: none;
-            color: white;
-            width: 90px;
-            height: 90px;
-            font-size: 0.9rem;
-            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.4);
         }
-
+        
+        @media (max-width: 900px) { 
+            .nav-links { display: none; } /* Hide links on mobile, keep logo/controls */
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">ABU SALEH.</a>
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                <img id="cat-gif" src="catlol.gif" alt="Cat" class="cat-gif-icon">
+            </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="honors.html">Honors & Certifications</a></li>
+                <li><a href="index.html">Home</a></li>
+
             </ul>
         </div>
     </nav>
 
-    <div class="container">
-        
-        <header style="text-align: center; margin-bottom: 50px; padding-top: 40px;">
-            <div style="position: relative; display: inline-block; margin-bottom: 25px;">
-                <img src="profile.png" alt="Profile Picture" 
-                     style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; 
-                            border: 4px solid white; box-shadow: 0 10px 30px rgba(49, 130, 206, 0.2);">
-            </div>
-            
-            <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; line-height: 1.1; position: relative;">
-                
-                <div id="name-hint" class="click-hint-container">
-                    click me <i class="fas fa-arrow-turn-down" style="transform: scaleX(-1);"></i>
-                </div>
-
-                <span id="typing-name" class="typing-effect">Abd AlRahman</span> <br>
-                <span style="background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Abu Saleh</span>
-            </h1>
-            
-            <p style="font-size: 1.2rem; color: var(--text-secondary); font-weight: 500;">
-                Electrical & Computer Engineering at Northeastern University
-            </p>
-        </header>
-
-        <div style="max-width: 800px; margin: 0 auto;">
-            
-            <div class="card fade-in-card delay-1" style="margin-bottom: 30px; display: flex; align-items: flex-start; gap: 20px;">
-                <div style="flex-shrink: 0; background: #ebf8ff; padding: 15px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 1.5rem; color: var(--accent-blue);"></i>
-                </div>
-                <div>
-                    <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Who Am I?</h3>
-                    <p class="card-desc" style="margin-bottom: 0;">
-                       My name is Abd AlRahman (yes that's only my first name), but I usually go by Abood, and I'm a sophomore studying Eletrical and Computer Engineering at Northeastern University with a 4.0 GPA graduating in 2028. As a student from Jordan, I received King's Abdullah II Scholar of Excellence Scholarship. Outside academics and projects, I enjoy traveling, table tennis, and videogames!
-                    </p>
-                </div>
-            </div>
-
-            <div class="card fade-in-card delay-2" style="margin-bottom: 30px; display: flex; align-items: flex-start; gap: 20px;">
-                <div style="flex-shrink: 0; background: #faf5ff; padding: 15px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                     <i class="fas fa-cogs" style="font-size: 1.5rem; color: var(--accent-blue);"></i>
-                </div>
-                <div>
-                    <h3 style="font-size: 1.4rem; margin-bottom: 10px;">My Interests</h3>
-                    <p class="card-desc" style="margin-bottom: 0;">
-                        I'm very passionate about building products that enhance the lives of others on dialy basis, and I enjoy doing more hardware hands-on work and experimenting with new technologies as well as getting out of my comfort zone to learn new things out.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card fade-in-card delay-3" style="margin-bottom: 30px; display: flex; align-items: flex-start; gap: 20px;">
-                <div style="flex-shrink: 0; background: #ebf8ff; padding: 15px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-search-location" style="font-size: 1.5rem; color: var(--accent-blue);"></i>
-                </div>
-                <div>
-                    <h3 style="font-size: 1.4rem; margin-bottom: 10px;">What I'm Looking For</h3>
-                    <p class="card-desc" style="margin-bottom: 0;">
-                        I am actively seeking opportunities in hardware electrical and computer engineering roles. As I'm still early in my engineering career, I'm open everything that will help me grow and discover even further what I enjoy doing the most.
-                    </p>
-                </div>
-            </div>
-
+    <div class="pdf-wrapper">
+        <div class="pdf-container">
+            <iframe src="resume.pdf" title="Resume">
+                <p style="text-align:center; padding: 20px; color: var(--text-secondary);">
+                    Your browser does not support PDFs. 
+                    <br><br>
+                    <a href="resume.pdf" style="color: var(--primary-mid); font-weight: bold;">Download the Resume</a>.
+                </p>
+            </iframe>
         </div>
-
-        <h3 style="text-align: center; margin-top: 80px; color: var(--text-secondary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px;">Explore The Portfolio</h3>
-        
-        <div class="network-container" id="networkContainer">
-            <canvas id="networkCanvas"></canvas>
-
-            <a href="experience.html" class="neural-node" id="node1">
-                <i class="fas fa-briefcase"></i> Experience
-            </a>
-            <a href="projects.html" class="neural-node" id="node2">
-                <i class="fas fa-microchip"></i> Projects
-            </a>
-            <a href="resume.html" class="neural-node" id="node3">
-                <i class="fas fa-file-alt"></i> Resume
-            </a>
-            <a href="honors.html" class="neural-node" id="node4">
-                <i class="fas fa-certificate"></i> Honors
-            </a>
-
-            <div class="neural-node active-node" id="nodeCenter">
-                <i class="fas fa-home"></i> Home
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
-            <a href="mailto:abusaleh.a@northeastern.edu" class="btn">Get In Touch</a>
-            <div style="margin-top: 20px; font-size: 1.5rem; color: var(--text-secondary);">
-                <a href="https://www.linkedin.com/in/abd-alrahman-abu-saleh-02a15132b/" style="margin: 0 10px; color: var(--text-secondary); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:abusaleh.a@northeastern.edu" style="margin: 0 10px; color: var(--text-secondary); transition: 0.3s;"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-
     </div>
 
-    <footer>
-        <p>&copy; 2025 Abd AlRahman Abu Saleh</p>
-    </footer>
-
     <script>
-        const nameElement = document.getElementById('typing-name');
-        const hintElement = document.getElementById('name-hint'); 
-        let isAbood = false; 
-        let isAnimating = false; 
-        let hasClickedOnce = false; 
+        // Theme Toggle Logic (Matches index.html)
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const catImg = document.getElementById('cat-gif');
+        let isDark = false;
 
-        nameElement.addEventListener('click', () => {
-            if (isAnimating) return; 
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            document.body.classList.toggle('dark-mode');
             
-            if (!hasClickedOnce) {
-                hintElement.classList.add('hint-hidden');
-                hasClickedOnce = true;
-            }
-            
-            isAnimating = true;
-            nameElement.classList.add('typing-active'); 
-
-            if (!isAbood) {
-                deleteText("Abd AlRahman", () => {
-                    typeText("Abood", () => {
-                        isAbood = true;
-                        isAnimating = false;
-                        setTimeout(() => nameElement.classList.remove('typing-active'), 1000); 
-                    });
-                });
-            } else {
-                deleteText("Abood", () => {
-                    typeText("Abd AlRahman", () => {
-                        isAbood = false;
-                        isAnimating = false;
-                        setTimeout(() => nameElement.classList.remove('typing-active'), 1000);
-                    });
-                });
+            if (isDark) { 
+                themeIcon.classList.replace('fa-moon', 'fa-sun'); 
+                catImg.src = "catlolz.gif"; 
+            } else { 
+                themeIcon.classList.replace('fa-sun', 'fa-moon'); 
+                catImg.src = "catlol.gif"; 
             }
         });
-
-        function deleteText(text, callback) {
-            let currentText = text;
-            let timer = setInterval(() => {
-                if (currentText.length > 0) {
-                    currentText = currentText.substring(0, currentText.length - 1);
-                    nameElement.innerText = currentText;
-                } else {
-                    clearInterval(timer);
-                    callback();
-                }
-            }, 50); 
-        }
-
-        function typeText(targetText, callback) {
-            let i = 0;
-            let timer = setInterval(() => {
-                if (i < targetText.length) {
-                    nameElement.innerText += targetText.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(timer);
-                    callback();
-                }
-            }, 100); 
-        }
-    </script>
-
-    <script>
-        const container = document.getElementById('networkContainer');
-        const canvas = document.getElementById('networkCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        let width, height;
-
-        // --- CONFIGURATION ---
-        const speed = 0.08; // Much slower for relaxation
-        const connectDistance = 350; // Increased distance to connect since space is bigger
-
-        // Get Node Elements
-        const domNodes = [
-            document.getElementById('nodeCenter'), // Index 0
-            document.getElementById('node1'),
-            document.getElementById('node2'),
-            document.getElementById('node3'),
-            document.getElementById('node4')
-        ];
-
-        // Random velocities helper
-        function getRandomVelocity() {
-            return (Math.random() - 0.5) * speed; 
-        }
-
-        // Initialize Nodes with random starting positions in the middle area
-        const nodes = [
-            // Center Node (Home)
-            { el: domNodes[0], x: 50, y: 50, vx: getRandomVelocity(), vy: getRandomVelocity() },
-            // Outer Nodes (Randomized Start)
-            { el: domNodes[1], x: 20, y: 30, vx: getRandomVelocity(), vy: getRandomVelocity() },
-            { el: domNodes[2], x: 80, y: 20, vx: getRandomVelocity(), vy: getRandomVelocity() },
-            { el: domNodes[3], x: 30, y: 80, vx: getRandomVelocity(), vy: getRandomVelocity() },
-            { el: domNodes[4], x: 70, y: 70, vx: getRandomVelocity(), vy: getRandomVelocity() }
-        ];
-
-        function resize() {
-            width = container.offsetWidth;
-            height = container.offsetHeight;
-            canvas.width = width;
-            canvas.height = height;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-
-            // Update Positions
-            nodes.forEach((node, index) => {
-                
-                // --- MOVEMENT LOGIC ---
-                if(index === 0) {
-                    // Center Node: Keep it within the inner 40% to 60% of the screen
-                    // So navigation center doesn't drift to the far edge
-                    if (node.x < 30 || node.x > 70) node.vx *= -1;
-                    if (node.y < 30 || node.y > 70) node.vy *= -1;
-                } else {
-                    // Other Nodes: Can roam freely from 5% to 95% of container
-                    if (node.x < 5 || node.x > 95) node.vx *= -1;
-                    if (node.y < 5 || node.y > 95) node.vy *= -1;
-                }
-
-                node.x += node.vx;
-                node.y += node.vy;
-
-                // Apply to DOM Element (using percentages for responsiveness)
-                node.el.style.left = node.x + '%';
-                node.el.style.top = node.y + '%';
-            });
-
-            // Draw Lines
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    // Convert % position to pixels for distance calc
-                    const x1 = (nodes[i].x / 100) * width;
-                    const y1 = (nodes[i].y / 100) * height;
-                    const x2 = (nodes[j].x / 100) * width;
-                    const y2 = (nodes[j].y / 100) * height;
-
-                    const dist = Math.hypot(x1 - x2, y1 - y2);
-
-                    if (dist < connectDistance) {
-                        // Opacity based on distance (closer = darker)
-                        // Adjusted opacity math for smoothness
-                        let opacity = 1 - (dist / connectDistance);
-                        opacity = opacity * 0.5; // Cap max opacity at 0.5 so it's subtle
-
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(49, 130, 206, ${opacity})`; 
-                        ctx.lineWidth = 1.5;
-                        ctx.moveTo(x1, y1);
-                        ctx.lineTo(x2, y2);
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
     </script>
 
 </body>
