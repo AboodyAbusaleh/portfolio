@@ -121,11 +121,10 @@
             color: var(--primary-mid); transform: scale(1.1);
         }
 
-        /* NEW MUSIC HINT STYLES */
         .music-hint {
             position: absolute;
             top: 50px;
-            left: -30px; /* Adjust to center under the button area */
+            left: -30px;
             background: var(--bg-card);
             color: var(--primary-dark);
             padding: 8px 12px;
@@ -137,17 +136,14 @@
             border: 1px solid var(--primary-mid);
             z-index: 1100;
             pointer-events: none;
-            
-            /* Wait 2.5s, then fade out over 0.5s */
             animation: fadeOutHint 0.5s ease-in-out 3.5s forwards;
         }
 
-        /* Arrow pointing up */
         .music-hint::after {
             content: '';
             position: absolute;
             top: -6px;
-            left: 45px; /* Points to the play button */
+            left: 45px;
             width: 0; 
             height: 0; 
             border-left: 6px solid transparent;
@@ -181,7 +177,7 @@
             display: flex; align-items: center; justify-content: space-between; gap: 40px;
         }
 
-        .hero-text { flex: 1; max-width: 400px; margin-right: auto; padding: 20px 0; position: relative; z-index: 20; }
+        .hero-text { flex: 1; max-width: 450px; margin-right: auto; padding: 20px 0; position: relative; z-index: 20; }
         .hero-image-container { flex: 1; display: flex; justify-content: flex-end; position: relative; z-index: 1; }
 
         .profile-pic {
@@ -192,7 +188,14 @@
             transition: transform 0.3s ease;
         }
         .profile-pic:hover { transform: scale(1.02); }
-        .card-desc { color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; position: relative; }
+
+        /* --- UPDATED TEXT SIZE --- */
+        .card-desc { 
+            color: var(--text-secondary); 
+            line-height: 1.8; 
+            font-size: 1.15rem; /* Increased from 0.95rem */
+            position: relative; 
+        }
 
         /* --- CLICK REVEAL SYSTEM --- */
         .click-reveal {
@@ -342,80 +345,24 @@
         .project-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; backdrop-filter: blur(5px); }
         .project-modal-overlay.active { opacity: 1; pointer-events: auto; }
         
-        /* Default Full Screen Modal Styles */
         .project-modal-content { background: var(--bg-card); width: 100%; height: 100%; overflow-y: auto; position: relative; transform: translateY(50px); transition: transform 0.3s ease; padding: 0; color: var(--text-primary); }
         .project-modal-overlay.active .project-modal-content { transform: translateY(0); }
         .close-project-btn { position: fixed; top: 25px; right: 30px; background: var(--bg-card); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; transition: 0.2s; z-index: 3000; box-shadow: 0 5px 15px var(--shadow-color); color: var(--text-primary); }
 
-        /* --- MINI MODAL STYLES (For Construction Cat) --- */
-        .project-modal-overlay.mini-mode { align-items: center; padding: 20px; }
-        .project-modal-overlay.mini-mode .project-modal-content { width: auto; max-width: 500px; height: auto; max-height: 80vh; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: translateY(20px); overflow-y: auto; }
-        .project-modal-overlay.active.mini-mode .project-modal-content { transform: translateY(0); }
-        .project-modal-overlay.mini-mode .close-project-btn { top: 15px; right: 15px; box-shadow: none; background: var(--bg-page); }
-        .project-modal-overlay.mini-mode .modal-inner-container { padding: 40px 30px; }
-
-        .modal-hero-img { 
-            width: 100%; 
-            max-height: 250px; /* Reduced Height */
-            object-fit: cover; 
-            display: block; 
-            border-bottom: 4px solid var(--primary-mid); 
-        }
-        
+        .modal-hero-img { width: 100%; max-height: 250px; object-fit: cover; display: block; border-bottom: 4px solid var(--primary-mid); }
         .modal-header { text-align: center; margin: 40px 0 25px 0; }
         .modal-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; color: var(--primary-dark); }
         .modal-meta { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .meta-tag { background: var(--bg-page); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+        .modal-subtitle { color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 15px; border-bottom: 2px solid var(--shadow-color); padding-bottom: 5px; display: inline-block; }
+        .modal-text { line-height: 1.8; color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; }
         
-        /* Updated Subtitle & Text Styling */
-        .modal-subtitle { 
-            color: var(--primary-dark); 
-            font-size: 1.4rem; 
-            margin-bottom: 15px; 
-            border-bottom: 2px solid var(--shadow-color); 
-            padding-bottom: 5px; 
-            display: inline-block; 
-        }
-        
-        .modal-text { 
-            line-height: 1.8; 
-            color: var(--text-secondary); 
-            font-size: 1.1rem; /* Increased size */
-            margin-bottom: 25px;
-            max-width: 600px; /* Constrain width for readability (squared look) */
-            margin-left: auto; margin-right: auto; /* Center the text block */
-        }
-        
-        /* Specific fix for lists to match paragraph centering */
-        ul.modal-text {
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        /* Zig Zag Layout for Modals */
+        ul.modal-text { text-align: left; padding-left: 20px; }
         .project-detail-section { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; }
         .project-detail-section.reverse { flex-direction: row-reverse; }
-        
-        .detail-text { 
-            flex: 1; 
-            display: flex; 
-            flex-direction: column;
-            justify-content: center;
-        }
-        
+        .detail-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         .detail-image { flex: 1; display: flex; justify-content: center; }
-        
-        /* Specific sizing for project detail images */
-        .project-detail-img {
-            width: 100%;
-            height: auto;
-            max-width: 450px; 
-            max-height: 350px; 
-            object-fit: contain; 
-            border-radius: 12px;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            background: var(--bg-page); /* Clean background for PNGs */
-        }
+        .project-detail-img { width: 100%; height: auto; max-width: 450px; max-height: 350px; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 30px var(--shadow-color); background: var(--bg-page); }
         
         .image-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 4000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         .image-modal.active { opacity: 1; pointer-events: auto; }
@@ -425,31 +372,16 @@
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         
-        /* Tighter Tech Gallery */
         .tech-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
         .tech-gallery-item img { width: 100%; border-radius: 8px; border: 1px solid var(--shadow-color); transition: transform 0.3s; box-shadow: 0 5px 10px var(--shadow-color); }
         .tech-gallery-item img:hover { transform: scale(1.03); }
         .caption { text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; font-weight: 500; }
         
-        /* Large Tech Gallery for Mira */
         .tech-gallery-large { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
-        .tech-gallery-large img { 
-            width: 100%; height: auto; max-height: 350px; 
-            object-fit: contain; border-radius: 8px; 
-            border: 1px solid var(--shadow-color); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-            background: white;
-        }
+        .tech-gallery-large img { width: 100%; height: auto; max-height: 350px; object-fit: contain; border-radius: 8px; border: 1px solid var(--shadow-color); box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: white; }
 
         .youtube-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #ef4444; color: white; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3); text-decoration: none; transition: transform 0.2s; }
         
-        /* Content Image Fix */
-        .content-img { 
-            width: auto; max-width: 100%; max-height: 350px; 
-            object-fit: contain; border-radius: 12px; margin: 20px auto; 
-            display: block; box-shadow: 0 10px 30px var(--shadow-color); 
-        }
-
         footer { text-align: center; padding: 40px 20px; color: var(--text-secondary); background: var(--bg-page); border-top: 1px solid var(--shadow-color); margin-top: 20px; }
         footer i { font-size: 1.3rem; color: var(--primary-mid); margin: 0 12px; transition: 0.3s; }
         footer i:hover { color: var(--primary-dark); transform: scale(1.2); }
@@ -652,119 +584,12 @@
     </div>
 
     <div id="project-data-store" style="display: none;">
-        
-        <div id="data-mira">
-            <div class="modal-inner-container">
-                <div class="modal-header">
-                    <h1 class="modal-title">Mira Smart Mirror</h1>
-                    <div class="modal-meta"><span class="meta-tag"><i class="fas fa-microchip"></i> ESP32</span><span class="meta-tag"><i class="fas fa-code"></i> C++</span><span class="meta-tag"><i class="fas fa-user-tag"></i> Power & Hardware</span></div>
-                </div>
-                <div style="margin-bottom: 40px;"><img src="full mirror.jpg" alt="Mira" class="modal-hero-img"></div>
-                
-                <div class="project-detail-section">
-                    <div class="detail-text">
-                        <h3 class="modal-subtitle" style="text-align: center;">The Challenge</h3>
-                        <p class="modal-text">After a hot shower, the most annoying thing is a foggy mirror that renders itself useless. Mira actively prevents fogging through intelligent hot air circulation and automated wipers, while serving as an information hub, displaying time, weather, and date to start your day informed.</p>
-                    </div>
-                    <div class="detail-image">
-                        <img src="full mirror.jpg" alt="Mira" class="project-detail-img">
-                    </div>
-                </div>
-
-                <div class="project-detail-section reverse">
-                    <div class="detail-text">
-                        <h3 class="modal-subtitle">My Contributions</h3>
-                        <p class="modal-text">I led the Power Subsystem Design and hardware integration. My focus was ensuring the MCU and high-load components (fans/motors) operated safely together.</p>
-                        <ul class="modal-text" style="list-style-type: disc;">
-                            <li>Designed schematics for the ESP32 MCU, 12V power distribution, DHT22 sensors, and LCD display.</li>
-                            <li>Executed precise soldering of peripherals and heating fans to the main control board.</li>
-                            <li>Implemented relay logic to control the 12V Stepper Motors and high-power fans via code.</li>
-                        </ul>
-                    </div>
-                    <div class="detail-image">
-                         <img src="wiring.jpg" alt="Wiring" class="project-detail-img">
-                    </div>
-                </div>
-
-                <div style="margin-top: 40px;">
-                    <div style="text-align: center;"><h3 class="modal-subtitle" > Technical Diagrams</h3></div>
-                    <p class="modal-text">From rough schematics to the final PCB layout. The system handles 12V for mechanical parts and 5V/3.3V for logic.</p>
-                    <div class="tech-gallery-large">
-                        <div class="tech-gallery-item"><img src="schematics.png" alt="Schematic"><div class="caption">Circuit Schematic</div></div>
-                        <div class="tech-gallery-item"><img src="pcbLayout.png" alt="PCB"><div class="caption">PCB Layout</div></div>
-                    </div>
-                </div>
-                
-                <div class="video-wrapper"><div class="video-container"><video controls playsinline poster="full mirror.jpg"><source src="mira.mp4" type="video/mp4"></video></div></div>
-            </div>
         </div>
-
-        <div id="data-worm">
-            <div class="modal-inner-container">
-                <div class="modal-header"><h1 class="modal-title">Blue Worm Vehicle</h1><div class="modal-meta"><span class="meta-tag"><i class="fas fa-microchip"></i> Arduino</span><span class="meta-tag"><i class="fas fa-cube"></i> SolidWorks</span><span class="meta-tag"><i class="far fa-calendar-alt"></i> Spring 2025</span></div></div>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <h3 class="modal-subtitle">The Concept</h3>
-                    <p class="modal-text">Maintenance within industrial ventilation systems poses significant risks to human workers due to tight spaces and the potential for dangerous gas impurities. Sending humans into these environments is often costly and hazardous. The objective was to create a remote-controlled vehicle capable of navigating these confined, winding environments to measure CO2 levels, ensuring it is safe before any human intervention occurs. The main constraint was the tight turning radius required inside narrow ducts.</p>
-                    
-                    <h3 class="modal-subtitle">Key Features</h3>
-                    <p class="modal-text">I engineered a unique 'worm-joint' articulation system. Instead of standard wheels for steering, the vehicle bends its entire body to turn, allowing it to snake through sharp angles in narrow ducts.</p>
-                    <ul class="modal-text" style="list-style-type: disc; padding-left: 20px; margin-bottom: 40px;">
-                        <li>Bluetooth Control: Utilized Arduino and HC-05 modules to drive servo motors for precise joint articulation remotely.</li>
-                        <li>Safety Monitoring: Integrated real-time CO2 sensors to transmit air quality data back to the operator.</li>
-                        <li>Rapid Prototyping: Designed custom chassis parts in SolidWorks and 3D printed them for iterative testing to ensure the joints could handle the torque.</li>
-                    </ul>
-                    <div style="text-align: center;"><a href="https://youtu.be/UFiLDNBXVKE" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Watch Demo</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="data-ecg">
-            <div class="modal-inner-container">
-                <div class="modal-header" ><h1 class="modal-title">ECG Monitoring System</h1><div class="modal-meta"><span class="meta-tag"><i class="far fa-calendar-alt"></i> Fall 2025</span><span class="meta-tag"><i class="fas fa-wave-square"></i> Analog Design</span><span class="meta-tag"><i class="fas fa-code"></i> MATLAB</span></div></div>
-                <img src="ECG.jpg" alt="ECG" class="project-detail-img" style="margin: 0 auto 40px auto; display: block;">
-                
-                <div class="project-detail-section">
-                     <div class="detail-text">
-                        <h3 class="modal-subtitle" style="text-align: center;">Overview</h3>
-                        <p class="modal-text">Electrocardiogram (ECG) monitoring is critical for detecting heart irregularities. This project involved building the entire signal chain from scratch: capturing the raw bio-potential signal from the body using electrodes, filtering it through analog circuits, and finally digitizing and cleaning it using software algorithms.</p>
-                    </div>
-                </div>
-
-                <div class="project-detail-section">
-                    <div class="detail-text">
-                        <h3 class="modal-subtitle" style="text-align: center;">Technical Implementation</h3>
-                        <p class="modal-text">I designed the analog front-end circuit to capture the millivolt-level signals and the digital back-end to make them readable.</p>
-                        <ul class="modal-text" style="list-style: disc; padding-left: 20px;">
-                            <li>Instrumentation amplifiers for weak signal boost.</li>
-                            <li>Active High/Low pass filtering to remove DC offset and high-frequency noise.</li>
-                            <li>MATLAB Notch filters for 60Hz interference removal.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div style="text-align: center;"> <h3 class="modal-subtitle" >Circuit & Signal Analysis</h3> </div>
-                <div class="tech-gallery">
-                    <div class="tech-gallery-item"><img src="opamp.jpg" alt="Op-Amp"><div class="caption">Analog Front-End</div></div>
-                    <div class="tech-gallery-item"><img src="ana1.png" alt="Plot"><div class="caption">Filtered Signal</div></div>
-                    <div class="tech-gallery-item"><img src="ana2.png" alt="Freq"><div class="caption">Fourier Analysis</div></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="data-river">
-            <div class="modal-inner-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                <h1 style="color: var(--primary-dark); font-size: 2.2rem; margin-bottom: 20px;">Under Construction</h1>
-                <div style="max-width: 350px; width: 100%; margin-bottom: 20px;">
-                    <img id="construction-cat" src="work-light.gif" alt="Working Cat" title="i will finish omori one day i promise" style="width: 100%;">
-                </div>
-                <p class="modal-text" style="font-size: 1.1rem;">The cat is working, it's just taking a nap!</p>
-            </div>
-        </div>
-    </div>
 
     <div class="image-modal" id="imageModal" onclick="closeImageModal()"><span class="close-img-modal">×</span><img src="" alt="Full Size" class="modal-content-img" id="fullSizeImage"></div>
 
     <script>
+        // Scripts for theme toggle, typing name, intersection observer, project modal, image modal, and music
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         const catImg = document.getElementById('cat-gif');
@@ -775,11 +600,6 @@
             document.body.classList.toggle('dark-mode');
             if (isDark) { themeIcon.classList.replace('fa-moon', 'fa-sun'); catImg.src = "catlolz.gif"; } 
             else { themeIcon.classList.replace('fa-sun', 'fa-moon'); catImg.src = "catlol.gif"; }
-            const workGif = isDark ? "work-dark.gif" : "work-light.gif";
-            const hiddenConstructionCat = document.getElementById('construction-cat'); 
-            if (hiddenConstructionCat) hiddenConstructionCat.src = workGif;
-            const visibleConstructionCat = document.querySelector('#project-modal #construction-cat'); 
-            if (visibleConstructionCat) visibleConstructionCat.src = workGif;
         });
 
         const nameElement = document.getElementById('typing-name');
@@ -806,23 +626,17 @@
         }, { threshold: 0.15 });
         document.querySelectorAll('.fade-in-card, .slide-from-left, .slide-from-right').forEach(el => observer.observe(el));
 
-        const projectModal = document.getElementById('project-modal');
-        const modalBodyContent = document.getElementById('modal-body-content');
         function openProject(projectId) {
             const content = document.getElementById('data-' + projectId);
             if (content) { 
-                modalBodyContent.innerHTML = content.innerHTML; 
-                projectModal.classList.add('active'); 
+                document.getElementById('modal-body-content').innerHTML = content.innerHTML; 
+                document.getElementById('project-modal').classList.add('active'); 
                 document.body.style.overflow = 'hidden'; 
-                if (projectId === 'river') { projectModal.classList.add('mini-mode'); const visibleCat = modalBodyContent.querySelector('#construction-cat'); if (visibleCat) visibleCat.src = isDark ? "work-dark.gif" : "work-light.gif"; } 
-                else { projectModal.classList.remove('mini-mode'); }
             }
         }
-        function closeProject() { projectModal.classList.remove('active'); setTimeout(() => { projectModal.classList.remove('mini-mode'); }, 300); document.body.style.overflow = 'auto'; const videos = modalBodyContent.querySelectorAll('video'); videos.forEach(v => v.pause()); }
-
-        const imgModal = document.getElementById('imageModal'), fullSizeImage = document.getElementById('fullSizeImage');
-        function openImageModal(src) { fullSizeImage.src = src; imgModal.classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeImageModal() { imgModal.classList.remove('active'); document.body.style.overflow = 'auto'; }
+        function closeProject() { document.getElementById('project-modal').classList.remove('active'); document.body.style.overflow = 'auto'; }
+        function openImageModal(src) { document.getElementById('fullSizeImage').src = src; document.getElementById('imageModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeImageModal() { document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow = 'auto'; }
 
         function toggleReveal(event, element) {
             event.stopPropagation();
@@ -832,12 +646,11 @@
             if (!isAlreadyOpen) content.classList.add('show');
         }
         document.addEventListener('click', function(event) {
-            if (!event.target.closest('.click-reveal') && !event.target.closest('.reveal-content')) {
+            if (!event.target.closest('.click-reveal')) {
                 document.querySelectorAll('.reveal-content').forEach(el => el.classList.remove('show'));
             }
         });
 
-        /* --- UPDATED MUSIC PLAYER LOGIC --- */
         const musicToggle = document.getElementById('music-toggle');
         const bgMusic = document.getElementById('bg-music');
         const playIcon = musicToggle.querySelector('i');
@@ -848,7 +661,6 @@
                 bgMusic.play(); 
                 playIcon.classList.remove('fa-play'); 
                 playIcon.classList.add('fa-pause');
-                // Immediately hide the hint if they click the button
                 if (musicHint) musicHint.style.display = 'none';
             } else { 
                 bgMusic.pause(); 
@@ -859,4 +671,3 @@
     </script>
 </body>
 </html>
-
