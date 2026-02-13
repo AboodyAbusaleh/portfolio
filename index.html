@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -607,6 +609,11 @@
                     <div class="project-content"><h3>ECG Monitoring System</h3><p>Designed an analog ECG monitoring system using active op-amps for signal acquisition and MATLAB processing.</p></div>
                     <i class="fas fa-chevron-right" style="color: var(--text-secondary);"></i>
                 </div>
+                 <div class="project-card fade-in-card" onclick="openProject('spider')">
+                    <div class="project-visual"><i class="fas fa-spider"></i></div>
+                    <div class="project-content"><h3>FPGA Spider Robot</h3><p>Desinged a Spider Robot using FPGA and Verilog that control different 6 joints each consisting of 3 differnet motors</p></div>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary);"></i>
+                </div>
                 <div class="project-card fade-in-card" onclick="openProject('river')">
                     <div class="project-visual"><i class="fas fa-water"></i></div>
                     <div class="project-content"><h3>River Gauge System</h3><p>An ultra-low-power telemetry system built with the nRF54L15 SoC. Optimized with Global RTC wake-up cycles.</p></div>
@@ -757,6 +764,38 @@
                 </div>
             </div>
         </div>
+        <div id="data-spider">
+            <div class="modal-inner-container">
+                <div class="modal-header">
+                    <h1 class="modal-title">FPGA Spider Robot</h1>
+                    <div class="modal-meta">
+                        <span class="meta-tag"><i class="fas fa-microchip"></i> FPGA</span>
+                        <span class="meta-tag"><i class="fas fa-code"></i> Verilog</span>
+                        <span class="meta-tag"><i class="fas fa-robot"></i> C++</span>
+                    </div>
+                </div>
+                <img src="spider.png" alt="Spider Robot" class="project-detail-img" style="margin: 0 auto 40px auto; display: block;">
+
+                <div class="project-detail-section">
+                    <div class="detail-text">
+                        <div style="text-align: center;"><h3 class="modal-subtitle">Overview</h3></div>
+                        <p class="modal-text">
+                            Developed at Northeastern University (Boston, MA) in Dec 2025. This project involved designing a hexapod robot controlled by an FPGA, bridging hardware logic with high-level software control.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-detail-section">
+                    <div class="detail-text">
+                        <div style="text-align: center;"><h3 class="modal-subtitle">Technical Implementation</h3></div>
+                        <ul class="modal-text" style="list-style-type: disc;">
+                            <li>Programmed an Altera DE1-SoC board in Quartus to generate PWM signals that control the servo motors in the robot.</li>
+                            <li>Designed an object-oriented C++ program that controls the robot logic and executes a specific sequence of movements.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="data-river">
             <div class="modal-inner-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
@@ -864,4 +903,5 @@
     </script>
 </body>
 </html>
+
 
