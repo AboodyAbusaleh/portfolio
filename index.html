@@ -122,6 +122,42 @@
             color: var(--primary-mid); transform: scale(1.1);
         }
 
+        /* --- MUSIC HINT (Restored) --- */
+        .music-hint {
+            position: absolute;
+            top: 50px;
+            left: -30px;
+            background: var(--bg-card);
+            color: var(--primary-dark);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 1px solid var(--primary-mid);
+            z-index: 1100;
+            pointer-events: none;
+            /* Fade out animation */
+            animation: fadeOutHint 0.5s ease-in-out 4s forwards;
+        }
+
+        .music-hint::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 45px;
+            width: 0; height: 0; 
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid var(--primary-mid);
+        }
+
+        @keyframes fadeOutHint {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(10px); visibility: hidden; }
+        }
+
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { font-weight: 600; color: var(--text-secondary); transition: 0.3s; font-size: 0.95rem; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-mid); }
@@ -430,6 +466,7 @@
             </div>
 
             <div class="nav-music">
+                <div class="music-hint">Play jazz while scrolling! 🎷</div>
                 <button id="music-toggle" title="Play Jazz"><i class="fas fa-play"></i></button>
                 <a href="https://open.spotify.com/user/YOUR_USER_ID" target="_blank" title="My Spotify"><i class="fab fa-spotify"></i></a>
                 <audio id="bg-music" loop>
@@ -837,12 +874,19 @@
         const musicToggle = document.getElementById('music-toggle');
         const bgMusic = document.getElementById('bg-music');
         const playIcon = musicToggle.querySelector('i');
+        const musicHint = document.querySelector('.music-hint');
         musicToggle.addEventListener('click', () => {
-            if (bgMusic.paused) { bgMusic.play(); playIcon.classList.remove('fa-play'); playIcon.classList.add('fa-pause'); } 
-            else { bgMusic.pause(); playIcon.classList.remove('fa-pause'); playIcon.classList.add('fa-play'); }
+            if (bgMusic.paused) { 
+                bgMusic.play(); 
+                playIcon.classList.remove('fa-play'); 
+                playIcon.classList.add('fa-pause');
+                if (musicHint) musicHint.style.display = 'none';
+            } else { 
+                bgMusic.pause(); 
+                playIcon.classList.remove('fa-pause'); 
+                playIcon.classList.add('fa-play'); 
+            }
         });
     </script>
 </body>
 </html>
-
-
