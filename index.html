@@ -127,6 +127,9 @@
         .fade-in-card { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .visible, .slide-active { opacity: 1; transform: translate(0); }
         .project-feed { display: flex; flex-direction: column; gap: 30px; max-width: 900px; }
+        .outside-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; max-width: 900px; align-items: stretch; grid-auto-rows: 1fr; }
+        .outside-grid .project-card { display: flex; flex-direction: column; justify-content: flex-start; padding: 16px; gap: 12px; align-items: stretch; height: 100%; }
+        .outside-grid .project-content p { margin: 0; font-size: 1rem; line-height: 1.45; }
         .project-card { display: flex; align-items: center; gap: 25px; background: var(--bg-card); padding: 30px; border-radius: 16px; border: 1px solid var(--shadow-color); box-shadow: 0 5px 15px var(--shadow-color); transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; cursor: pointer; text-align: left; }
         .project-card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--shadow-color); border-color: var(--primary-mid); }
         .project-visual { flex-shrink: 0; width: 60px; height: 60px; background: var(--bg-page); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--primary-mid); }
@@ -348,7 +351,7 @@
                 <div class="job-row">
                     <div class="job-text slide-from-left">
                         <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 5px;">R&D Electrical & Computer Co-op</h3>
-                        <span class="card-meta">Miele</span>
+                        <span class="card-meta">Miele | Peabody, MA| Jan-Jun 2026</span>
                         <p class="card-desc">Currently co-oping at Miele as a research and development electrical and computer engineer. I am contributing to the engineering of high-end domestic appliances, focusing on embedded systems and hardware testing.</p>
                     </div>
                     <div class="job-image slide-from-right"><img src="miele.png" alt="Miele"></div>
@@ -435,6 +438,35 @@
         </div>
     </div>
  
+    <div id="outside-academics" class="section-padding">
+        <div class="container">
+            <div class="section-header"><h2>Outside Academics</h2><p>Community involvement and enrichment programs I've participated in.</p></div>
+            <div class="outside-grid">
+                <div class="project-card fade-in-card" style="cursor: default;">
+                    <div class="project-visual"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="project-content">
+                        <h3>SEP — Summer Enrichment Program</h3>
+                        <p>I tutored and proctored underprivileged public-school students in English and supported other extracurricular activities during the SEP summer program, helping younger students build confidence and improve academic skills.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in-card" style="cursor: default;">
+                    <div class="project-visual"><i class="fas fa-hands-helping"></i></div>
+                    <div class="project-content">
+                        <h3>Invitation by HM King Abdullah II</h3>
+                        <p>Invited by His Majesty King Abdullah II to discuss regional challenges and contribute to efforts supporting humanitarian aid distribution for affected communities in the region.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in-card" style="cursor: default;">
+                    <div class="project-visual"><i class="fas fa-globe"></i></div>
+                    <div class="project-content">
+                        <h3>Summer at King's</h3>
+                        <p>Led international youth trips bringing children from around the world to visit Jordan, explore local culture, and learn through immersive cultural exchange activities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="hobbies" class="section-padding">
         <div class="container">
             <div class="section-header"><h2>Hobbies</h2><p>I'm hella cool outside of academics and porjecs, hmu if you're down to do any of these together!(this is the least professional part of the site so be warned...)</p></div>
@@ -665,7 +697,7 @@
 
                 <!-- River Animation Banner -->
                 <div style="width:100%;border-radius:16px;overflow:hidden;position:relative;height:165px;background:linear-gradient(180deg,#0d2137 0%,#1a4a72 40%,#1e6fa8 70%,#2980b9 100%);box-shadow:0 8px 30px rgba(41,128,185,0.4);margin-bottom:36px;">
-                    <canvas id="riverCanvas" style="width:100%;height:100%;display:block;"></canvas>
+                    <canvas id="riverCanvas" width="1200" height="165" style="width:100%;height:100%;display:block;"></canvas>
                     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;">
                         <div style="color:rgba(255,255,255,0.95);font-size:1.5rem;font-weight:800;letter-spacing:2px;text-shadow:0 2px 12px rgba(0,0,0,0.5);">RIVER GAUGE SYSTEM</div>
                         <div style="color:rgba(174,203,235,0.9);font-size:0.82rem;font-weight:600;margin-top:5px;letter-spacing:1.5px;">LIVE WATER LEVEL MONITORING</div>
@@ -674,63 +706,109 @@
 
                 <script>
                 (function() {
-                    function startRiverAnim() {
-                        var canvas = document.getElementById('riverCanvas');
-                        if (!canvas) return;
-                        var ctx = canvas.getContext('2d');
-                        var W, H, t = 0, rafId;
-                        var waves = [
-                            { y:0.42, amp:8,  freq:0.016, speed:0.011, color:'rgba(30,111,168,0.5)',  phase:0   },
-                            { y:0.50, amp:6,  freq:0.024, speed:0.016, color:'rgba(41,128,185,0.42)', phase:1.1 },
-                            { y:0.60, amp:4,  freq:0.033, speed:0.021, color:'rgba(70,155,210,0.38)', phase:2.3 },
-                            { y:0.72, amp:3,  freq:0.044, speed:0.027, color:'rgba(120,185,230,0.32)',phase:0.7 },
-                        ];
-                        var bubbles = Array.from({length:20}, function() {
-                            return { x:Math.random()*800, y:Math.random()*165, r:1+Math.random()*2.5, speed:0.25+Math.random()*0.55, op:0.12+Math.random()*0.3 };
-                        });
-                        var fish = Array.from({length:3}, function(_, i) {
-                            return { x:-60-i*200, y:75+Math.random()*50, speed:0.45+Math.random()*0.75, sz:7+Math.random()*6, yo:Math.random()*Math.PI*2 };
-                        });
-                        function resize() { W = canvas.width = canvas.offsetWidth||800; H = canvas.height = canvas.offsetHeight||165; }
-                        function drawFish(f) {
-                            ctx.save();
-                            var fy = f.y + Math.sin(t*1.1+f.yo)*5;
-                            ctx.translate(f.x, fy);
-                            ctx.fillStyle = 'rgba(190,225,255,0.5)';
-                            ctx.beginPath(); ctx.ellipse(0,0,f.sz,f.sz*0.42,0,0,Math.PI*2); ctx.fill();
-                            ctx.beginPath(); ctx.moveTo(-f.sz*0.9,0); ctx.lineTo(-f.sz*1.5,-f.sz*0.38); ctx.lineTo(-f.sz*1.5,f.sz*0.38); ctx.closePath(); ctx.fill();
-                            ctx.restore();
-                        }
-                        function frame() {
-                            resize(); ctx.clearRect(0,0,W,H);
-                            var dg = ctx.createLinearGradient(0,0,0,H);
-                            dg.addColorStop(0,'rgba(10,25,50,0.0)'); dg.addColorStop(1,'rgba(5,15,35,0.5)');
-                            ctx.fillStyle = dg; ctx.fillRect(0,0,W,H);
-                            waves.forEach(function(w) {
-                                ctx.beginPath(); ctx.moveTo(0,H);
-                                for (var x=0;x<=W;x+=2) { var y=w.y*H+Math.sin(x*w.freq+t*w.speed+w.phase)*w.amp+Math.sin(x*w.freq*1.8+t*w.speed*0.75)*w.amp*0.35; ctx.lineTo(x,y); }
-                                ctx.lineTo(W,H); ctx.lineTo(0,H); ctx.closePath(); ctx.fillStyle=w.color; ctx.fill();
-                            });
-                            bubbles.forEach(function(b) {
-                                b.y-=b.speed; b.x+=Math.sin(t*0.4+b.y)*0.25;
-                                if(b.y<-4){b.y=H+4;b.x=Math.random()*W;}
-                                ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
-                                ctx.strokeStyle='rgba(174,203,235,'+b.op+')'; ctx.lineWidth=0.7; ctx.stroke();
-                            });
-                            fish.forEach(function(f){ f.x+=f.speed; if(f.x>W+90)f.x=-90; drawFish(f); });
-                            for(var i=0;i<3;i++){
-                                var sx=((W*0.33*i+t*25)%W);
-                                var sg=ctx.createLinearGradient(sx,0,sx+55,0);
-                                sg.addColorStop(0,'rgba(255,255,255,0)'); sg.addColorStop(0.5,'rgba(255,255,255,0.06)'); sg.addColorStop(1,'rgba(255,255,255,0)');
-                                ctx.fillStyle=sg; ctx.fillRect(sx,H*0.28,70,H*0.52);
-                            }
-                            t+=0.016; rafId=requestAnimationFrame(frame);
-                        }
-                        resize(); frame();
-                        var modal=document.getElementById('project-modal');
-                        if(modal){var obs=new MutationObserver(function(){if(!modal.classList.contains('active')){cancelAnimationFrame(rafId);obs.disconnect();}});obs.observe(modal,{attributes:true,attributeFilter:['class']});}
+                    var canvas = document.getElementById('riverCanvas');
+                    if (!canvas) { console.log('No canvas found'); return; }
+                    var ctx = canvas.getContext('2d');
+                    var t = 0;
+                    
+                    var rocks = [];
+                    for(var i=0; i<12; i++) {
+                        rocks.push({x: (i+1)*100, y: 120, w: 30, h: 15});
                     }
-                    setTimeout(startRiverAnim, 80);
+                    
+                    var fish = [];
+                    for(var i=0; i<3; i++) {
+                        fish.push({x: -50 - i*300, y: 70 + Math.random()*40, speed: 0.6 + Math.random()*0.4, sz: 8});
+                    }
+                    
+                    var bubbles = [];
+                    for(var i=0; i<30; i++) {
+                        bubbles.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: 1+Math.random()*2, sp: 0.3+Math.random()*0.5});
+                    }
+                    
+                    function animate() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        
+                        // Background gradient
+                        var grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+                        grad.addColorStop(0, 'rgba(20, 60, 120, 0.3)');
+                        grad.addColorStop(0.5, 'rgba(30, 100, 150, 0.5)');
+                        grad.addColorStop(1, 'rgba(40, 120, 180, 0.8)');
+                        ctx.fillStyle = grad;
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        
+                        // Draw waves
+                        for(var w=0; w<4; w++) {
+                            var waveY = 50 + w*20;
+                            var amp = 8 - w*1.5;
+                            var freq = 0.01 + w*0.005;
+                            var color = 'rgba(50, 150, 200, ' + (0.6 - w*0.1) + ')';
+                            
+                            ctx.beginPath();
+                            ctx.moveTo(0, waveY);
+                            for(var x=0; x<=canvas.width; x+=5) {
+                                var y = waveY + Math.sin(x*freq + t*0.05)*amp;
+                                ctx.lineTo(x, y);
+                            }
+                            ctx.lineTo(canvas.width, canvas.height);
+                            ctx.lineTo(0, canvas.height);
+                            ctx.closePath();
+                            ctx.fillStyle = color;
+                            ctx.fill();
+                        }
+                        
+                        // Draw rocks
+                        rocks.forEach(function(r) {
+                            ctx.fillStyle = 'rgba(120, 100, 80, 0.7)';
+                            ctx.beginPath();
+                            ctx.ellipse(r.x, r.y, r.w/2, r.h/2, 0, 0, 6.28);
+                            ctx.fill();
+                            ctx.strokeStyle = 'rgba(80, 60, 40, 0.8)';
+                            ctx.lineWidth = 2;
+                            ctx.stroke();
+                        });
+                        
+                        // Draw bubbles
+                        bubbles.forEach(function(b) {
+                            b.y -= b.sp;
+                            b.x += Math.sin(t*0.02 + b.y)*0.5;
+                            if(b.y < -5) {
+                                b.y = canvas.height + 5;
+                                b.x = Math.random()*canvas.width;
+                            }
+                            ctx.strokeStyle = 'rgba(200, 220, 255, 0.4)';
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.arc(b.x, b.y, b.r, 0, 6.28);
+                            ctx.stroke();
+                        });
+                        
+                        // Draw fish
+                        fish.forEach(function(f) {
+                            f.x += f.speed;
+                            if(f.x > canvas.width + 100) f.x = -100;
+                            var fy = f.y + Math.sin(t*0.08)*5;
+                            
+                            ctx.save();
+                            ctx.translate(f.x, fy);
+                            ctx.fillStyle = 'rgba(180, 220, 255, 0.6)';
+                            ctx.beginPath();
+                            ctx.ellipse(0, 0, f.sz, f.sz*0.4, 0, 0, 6.28);
+                            ctx.fill();
+                            ctx.beginPath();
+                            ctx.moveTo(-f.sz*0.8, 0);
+                            ctx.lineTo(-f.sz*1.3, -f.sz*0.3);
+                            ctx.lineTo(-f.sz*1.3, f.sz*0.3);
+                            ctx.closePath();
+                            ctx.fill();
+                            ctx.restore();
+                        });
+                        
+                        t += 1;
+                        requestAnimationFrame(animate);
+                    }
+                    
+                    animate();
                 })();
                 </script>
 
@@ -776,7 +854,7 @@
                     </p>
                     <ul class="modal-text" style="margin:0 auto 20px auto;list-style-type:disc;padding-left:20px;">
                         <li><strong>Multimeter Testing:</strong> Verified power rail voltages (3.3V, 5V, and ground continuity) across all supply nodes. Measured impedance of critical traces and validated proper component placement by checking solder joint resistance.</li>
-                        <li><strong>Oscilloscope Analysis:</strong> Captured and analyzed SPI clock signals to ensure proper timing and voltage levels. Verified I2C communication waveforms for sensor data lines. Tested PWM outputs and confirmed signal integrity with rise/fall times within specification.</li>
+                        <li><strong>Oscilloscope Analysis:</strong> Captured and analyzed SPI clock signals to ensure proper timing and voltage levels. Verified SPI communication waveforms for sensor data lines. Tested PWM outputs and confirmed signal integrity with rise/fall times within specification.</li>
                     </ul>
                     <!-- Kept: PCB 3D only -->
                     <div class="tech-gallery" style="max-width:300px;margin:0 auto;">
