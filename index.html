@@ -10,7 +10,7 @@
     <style>
         /* --- GLOBAL & THEME VARIABLES --- */
         :root {
-            /* Light Theme */
+            /* Light Theme */ 
             --primary-dark: #2B4C7E;
             --primary-mid: #567EBB;
             --primary-light: #AECBEB;
@@ -202,6 +202,8 @@
         .hobby-gallery-title { color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 14px; font-weight: 800; }
         .hobby-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
         .hobby-gallery-grid img { width: 100%; height: 220px; object-fit: contain; background: var(--bg-page); border-radius: 10px; border: 1px solid var(--shadow-color); box-shadow: 0 6px 15px var(--shadow-color); cursor: zoom-in; }
+        .hobby-gallery-grid figure { margin: 0; }
+        .hobby-gallery-caption { display: block; margin-top: 6px; text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); }
         .close-hobby-gallery { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--shadow-color); background: var(--bg-page); color: var(--text-primary); font-size: 1.1rem; cursor: pointer; }
         .fnaf-trigger { color: var(--primary-mid); font-weight: 700; border-bottom: 1px dashed var(--primary-mid); cursor: pointer; }
         .fnaf-pop { position: fixed; z-index: 6000; background: var(--bg-card); color: var(--primary-dark); border: 1px solid var(--primary-mid); border-radius: 12px; padding: 8px 10px; box-shadow: 0 10px 24px rgba(0,0,0,0.25); font-size: 1.05rem; font-weight: 700; pointer-events: none; animation: fnafPopBurst 0.8s ease forwards; }
@@ -440,10 +442,16 @@
                 <div class="connection-line"></div>
                 <div class="honor-node fade-in-card"><i class="fas fa-crown"></i><h3>King's Abdullah II Scholar</h3><p>Full scholarship for excellence.</p></div>
                 <div class="honor-node fade-in-card"><i class="fas fa-star"></i><h3>Dean's List (4.0 GPA)</h3><p>Northeastern University.</p></div>
-                <div class="honor-node fade-in-card with-img" onclick="openImageModal('pcb.png')" style="cursor: pointer;">
+                <div class="honor-node fade-in-card with-img" onclick="openHobbyGallery(event, this)" data-gallery-title="Altium Certifications" style="cursor: pointer;">
                     <img src="pcb.png" alt="PCB" class="honor-img-small">
-                    <h3>Altium PCB Design</h3><p>Certified Professional. <strong>Click to view.</strong></p>
+                    <h3>Altium PCB Design</h3><p>4 Certifications. <strong>Click to view.</strong></p>
                     <img src="pcb.png" class="node-bg-img" alt="">
+                    <span class="hobby-gallery-source">
+                        <img src="pcb.png" alt="Altium PCB Design certificate" data-label="PCB Design">
+                        <img src="global-scholar.png" alt="Altium Global Scholar certificate" data-label="Global Scholar">
+                        <img src="essentials.png" alt="Altium Essentials certificate" data-label="Essentials">
+                        <img src="user-manage.png" alt="Altium User Management certificate" data-label="User Management">
+                    </span>
                 </div>
                 <div class="honor-node fade-in-card"><i class="fas fa-trophy"></i><h3>CS Fair Winner</h3><p>1st Place: Maze Generator.</p></div>
             </div>
@@ -978,14 +986,25 @@
             const images = Array.from(source.querySelectorAll('img'));
             if (!images.length) return;
             const title = element.querySelector('h3')?.textContent || 'Hobby Photos';
-            hobbyGalleryTitle.textContent = title + ' Gallery';
+            hobbyGalleryTitle.textContent = element.dataset.galleryTitle || title + ' Gallery';
             hobbyGalleryGrid.innerHTML = '';
             images.forEach((img) => {
                 const copy = document.createElement('img');
                 copy.src = img.getAttribute('src') || '';
                 copy.alt = img.getAttribute('alt') || title;
                 copy.addEventListener('click', () => openImageModal(copy.src));
-                hobbyGalleryGrid.appendChild(copy);
+                const label = img.dataset.label;
+                if (label) {
+                    const figure = document.createElement('figure');
+                    const caption = document.createElement('figcaption');
+                    caption.className = 'hobby-gallery-caption';
+                    caption.textContent = label;
+                    figure.appendChild(copy);
+                    figure.appendChild(caption);
+                    hobbyGalleryGrid.appendChild(figure);
+                } else {
+                    hobbyGalleryGrid.appendChild(copy);
+                }
             });
             hobbyGalleryModal.classList.add('active');
             document.body.style.overflow = 'hidden';
