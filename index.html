@@ -442,7 +442,7 @@
                 <div class="connection-line"></div>
                 <div class="honor-node fade-in-card"><i class="fas fa-crown"></i><h3>King's Abdullah II Scholar</h3><p>Full scholarship for excellence.</p></div>
                 <div class="honor-node fade-in-card"><i class="fas fa-star"></i><h3>Dean's List (4.0 GPA)</h3><p>Northeastern University.</p></div>
-                <div class="honor-node fade-in-card with-img" onclick="openHobbyGallery(event, this)" data-gallery-title="Altium Certifications" style="cursor: pointer;">
+                <div class="honor-node fade-in-card with-img" onclick="openHobbyGallery(event, this)" data-gallery-title="Altium Certifications" data-hash-id="altium" style="cursor: pointer;">
                     <img src="pcb.png" alt="PCB" class="honor-img-small">
                     <h3>Altium PCB Design</h3><p>4 Certifications. <strong>Click to view.</strong></p>
                     <img src="pcb.png" class="node-bg-img" alt="">
@@ -939,7 +939,7 @@
  
         const projectModal = document.getElementById('project-modal');
         const modalBodyContent = document.getElementById('modal-body-content');
-        function openProject(projectId) {
+        function openProject(projectId, updateUrl = true) {
             const content = document.getElementById('data-' + projectId);
             if (content) {
                 modalBodyContent.innerHTML = content.innerHTML;
@@ -951,9 +951,18 @@
                 }
                 
                 projectModal.classList.remove('mini-mode');
+
+                if (updateUrl) history.pushState(null, '', '#p-' + projectId);
             }
         }
-        function closeProject() { projectModal.classList.remove('active'); setTimeout(() => { projectModal.classList.remove('mini-mode'); }, 300); document.body.style.overflow = 'auto'; const videos = modalBodyContent.querySelectorAll('video'); videos.forEach(v => v.pause()); }
+        function closeProject() {
+            projectModal.classList.remove('active');
+            setTimeout(() => { projectModal.classList.remove('mini-mode'); }, 300);
+            document.body.style.overflow = 'auto';
+            const videos = modalBodyContent.querySelectorAll('video');
+            videos.forEach(v => v.pause());
+            history.pushState(null, '', window.location.pathname);
+        }
 
         /* Miele Dropdown Toggle Function */
         function toggleMieleDetails(btn) {
@@ -979,7 +988,7 @@
         const hobbyGalleryModal = document.getElementById('hobbyGalleryModal');
         const hobbyGalleryTitle = document.getElementById('hobbyGalleryTitle');
         const hobbyGalleryGrid = document.getElementById('hobbyGalleryGrid');
-        function openHobbyGallery(event, element) {
+        function openHobbyGallery(event, element, updateUrl = true) {
             event.stopPropagation();
             const source = element.querySelector('.hobby-gallery-source');
             if (!source) return;
@@ -1008,8 +1017,16 @@
             });
             hobbyGalleryModal.classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            if (updateUrl && element.dataset.hashId) {
+                history.pushState(null, '', '#g-' + element.dataset.hashId);
+            }
         }
-        function closeHobbyGallery() { hobbyGalleryModal.classList.remove('active'); document.body.style.overflow = 'auto'; }
+        function closeHobbyGallery() {
+            hobbyGalleryModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            history.pushState(null, '', window.location.pathname);
+        }
  
         function toggleReveal(event, element) {
             event.stopPropagation();
@@ -1179,6 +1196,30 @@
             if (bgMusic.paused) { bgMusic.play(); playIcon.classList.remove('fa-play'); playIcon.classList.add('fa-pause'); if (musicHint) musicHint.style.display = 'none'; }
             else { bgMusic.pause(); playIcon.classList.remove('fa-pause'); playIcon.classList.add('fa-play'); }
         });
+
+        /* --- Deep-link support: open project/gallery based on URL hash --- */
+        function handleHashRoute() {
+            const hash = window.location.hash;
+            if (hash.startsWith('#p-')) {
+                const id = hash.slice(3);
+                if (document.getElementById('data-' + id)) openProject(id, false);
+            } else if (hash.startsWith('#g-')) {
+                const id = hash.slice(3);
+                const target = document.querySelector('[data-hash-id="' + id + '"]');
+                if (target) openHobbyGallery({ stopPropagation: () => {} }, target, false);
+            } else {
+                if (projectModal.classList.contains('active')) {
+                    projectModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+                if (hobbyGalleryModal.classList.contains('active')) {
+                    hobbyGalleryModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        }
+        window.addEventListener('DOMContentLoaded', handleHashRoute);
+        window.addEventListener('popstate', handleHashRoute);
     </script>
 </body>
 </html>
