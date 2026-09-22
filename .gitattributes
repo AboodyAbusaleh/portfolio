@@ -1,0 +1,13 @@
+# The HTML in this repo has always been committed with CRLF endings.
+# Pin it so an editor or autocrlf setting can't renormalize the whole file
+# and bury a one-line change in a 1300-line diff.
+*.html -text
+
+# Binary assets: never diff or convert these.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp3 binary
+*.mp4 binary
+*.pdf binary

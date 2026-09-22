@@ -197,6 +197,10 @@
         .wip-mini h1 { font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin: 22px 0 10px 0; line-height: 1.3; }
         .wip-mini .wip-role { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 18px; }
         .wip-mini .wip-blurb { font-size: 1rem; line-height: 1.6; color: var(--text-secondary); margin: 0 auto; }
+        .wip-mini .wip-bullets { text-align: left; max-width: 680px; margin: 22px auto 0 auto; padding-left: 22px; }
+        .wip-mini .wip-bullets li { font-size: 0.97rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 12px; }
+        .wip-mini .wip-bullets li:last-child { margin-bottom: 0; }
+        .wip-mini .wip-bullets li::marker { color: var(--primary-mid); }
         .wip-footnote { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 8px 16px; border-radius: 20px; background: var(--bg-page); border: 1px dashed var(--shadow-color); font-size: 0.85rem; font-style: italic; color: var(--text-secondary); }
         .hobbies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; }
         .hobby-card { background: var(--bg-card); border: 1px solid var(--shadow-color); border-radius: 14px; padding: 22px; box-shadow: 0 5px 15px var(--shadow-color); display: flex; align-items: flex-start; gap: 12px; position: relative; }
@@ -325,13 +329,13 @@
         <div class="nav-container">
             <div class="nav-controls">
                 <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
-                <img id="cat-gif" src="catlol.gif" alt="Cat" class="cat-gif-icon">
+                <img id="cat-gif" src="assets/img/ui/cat-lol.gif" alt="Cat" class="cat-gif-icon">
             </div>
             <div class="nav-music">
                 <div class="music-hint">Play jazz while scrolling! 🎷</div>
                 <button id="music-toggle" title="Play Jazz"><i class="fas fa-play"></i></button>
                 <a href="https://open.spotify.com/user/ltsc7tzcr9qygfh23bdvgyimv?si=43bac5eed7824755" target="_blank" title="I have better music taste than you"><i class="fab fa-spotify"></i></a>
-                <audio id="bg-music" loop><source src="jazz.mp3" type="audio/mpeg"></audio>
+                <audio id="bg-music" loop><source src="assets/media/jazz.mp3" type="audio/mpeg"></audio>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -372,7 +376,7 @@
                     </button>
                 </div>
             </div>
-            <div class="hero-image-container fade-in-card"><img src="abood.png" alt="Profile Picture" class="profile-pic"></div>
+            <div class="hero-image-container fade-in-card"><img src="assets/img/about/abood.png" alt="Profile Picture" class="profile-pic"></div>
         </div>
     </div>
  
@@ -404,7 +408,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="job-image slide-from-right"><img src="miele.png" alt="Miele"></div>
+                    <div class="job-image slide-from-right"><img src="assets/img/experience/miele.png" alt="Miele"></div>
                 </div>
 
                 <div class="job-row reverse">
@@ -413,7 +417,7 @@
                         <span class="card-meta">Vectors CS | Amman, Jordan | Summer 2025</span>
                         <p class="card-desc">Identified optimal ERP Systems for clients through comprehensive auditing. Validated regulated pharmaceutical industries for CSV compliance. Reviewed RFPs and designed vendor management system wireframes.</p>
                     </div>
-                    <div class="job-image slide-from-left"><img src="vectors.png" alt="Vectors"></div>
+                    <div class="job-image slide-from-left"><img src="assets/img/experience/vectors.png" alt="Vectors"></div>
                 </div>
                 <div class="job-row">
                     <div class="job-text slide-from-left">
@@ -421,7 +425,7 @@
                         <span class="card-meta">NAME Lab | Burlington, MA | Spring 2025</span>
                         <p class="card-desc">Developed films to store information using magnetic momentum of electrons via Pulsed Laser Deposition for spintronics. Researched Quantum materials utilizing topological properties like spin-momentum locking.</p>
                     </div>
-                    <div class="job-image slide-from-right"><img src="research.jpg" alt="Research"></div>
+                    <div class="job-image slide-from-right"><img src="assets/img/experience/research.jpg" alt="Research"></div>
                 </div>
             </div>
         </div>
@@ -435,7 +439,7 @@
                     <div class="project-visual"><i class="fas fa-flask"></i></div>
                     <div class="project-content">
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 5px;"><h3 style="margin: 0;">Myscology Foods</h3><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
-                        <p>Closed-loop temperature and humidity control for a self-contained fermentation unit at Myscology Foods.</p>
+                        <p>Closed-loop temperature and humidity control for a self-contained benchtop fermentation unit at Myscology Foods.</p>
                     </div>
                     <i class="fas fa-chevron-right" style="color: var(--text-secondary);"></i>
                 </div>
@@ -443,7 +447,7 @@
                     <div class="project-visual"><i class="fas fa-microchip"></i></div>
                     <div class="project-content">
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 5px;"><h3 style="margin: 0;">Mixed-Signal IC Design</h3><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
-                        <p>Transistor-level analog schematic capture, simulation, and layout on a 10-person IC design team.</p>
+                        <p>Analog schematic capture, simulation, and layout for a 10-bit SAR ADC on a 10-person mixed-signal IC design team.</p>
                     </div>
                     <i class="fas fa-chevron-right" style="color: var(--text-secondary);"></i>
                 </div>
@@ -488,14 +492,14 @@
                 <div class="honor-node fade-in-card"><i class="fas fa-crown"></i><h3>King's Abdullah II Scholar</h3><p>Full scholarship for excellence.</p></div>
                 <div class="honor-node fade-in-card"><i class="fas fa-star"></i><h3>Dean's List (4.0 GPA)</h3><p>Northeastern University.</p></div>
                 <div class="honor-node fade-in-card with-img" onclick="openHobbyGallery(event, this)" data-gallery-title="Altium Certifications" data-hash-id="altium" style="cursor: pointer;">
-                    <img src="pcb.png" alt="PCB" class="honor-img-small">
+                    <img src="assets/img/certifications/altium-pcb-design.png" alt="PCB" class="honor-img-small">
                     <h3>Altium PCB Design</h3><p>4 Certifications. <strong>Click to view.</strong></p>
-                    <img src="pcb.png" class="node-bg-img" alt="">
+                    <img src="assets/img/certifications/altium-pcb-design.png" class="node-bg-img" alt="">
                     <span class="hobby-gallery-source">
-                        <img src="pcb.png" alt="Altium PCB Design certificate" data-label="PCB Design">
-                        <img src="global-scholar.png" alt="Altium Global Scholar certificate" data-label="Global Scholar">
-                        <img src="essentials.png" alt="Altium Essentials certificate" data-label="Essentials">
-                        <img src="user-manage.png" alt="Altium User Management certificate" data-label="User Management">
+                        <img src="assets/img/certifications/altium-pcb-design.png" alt="Altium PCB Design certificate" data-label="PCB Design">
+                        <img src="assets/img/certifications/global-scholar.png" alt="Altium Global Scholar certificate" data-label="Global Scholar">
+                        <img src="assets/img/certifications/essentials.png" alt="Altium Essentials certificate" data-label="Essentials">
+                        <img src="assets/img/certifications/user-management.png" alt="Altium User Management certificate" data-label="User Management">
                     </span>
                 </div>
                 <div class="honor-node fade-in-card"><i class="fas fa-trophy"></i><h3>CS Fair Winner</h3><p>1st Place: Maze Generator.</p></div>
@@ -563,8 +567,8 @@
                         </div>
                     </div>
                     <span class="hobby-gallery-source media-grid gym-grid">
-                        <img src="gym1.jpg" alt="Gym 1">
-                        <img src="gym2.jpg" alt="Gym 2">
+                        <img src="assets/img/hobbies/gym-1.jpg" alt="Gym 1">
+                        <img src="assets/img/hobbies/gym-2.jpg" alt="Gym 2">
                     </span>
                 </div>
                 <div class="hobby-card fade-in-card is-clickable" onclick="openHobbyGallery(event, this)">
@@ -574,10 +578,10 @@
                         <p>I love mostly offline indie games but that doesn't stop me from ragequitting Rocket League as I enjoy(?) online ones too. Did I mention I memorize <span class="fnaf-trigger" onclick="showFnafBear(event)">FNAF lore</span>?</p>
                     </div>
                     <span class="hobby-gallery-source media-grid games-grid">
-                        <img src="game1.jpg" alt="Game 1">
-                        <img src="game2.png" alt="Game 2">
-                        <img src="game3.jpg" alt="Game 3">
-                        <img src="game4.jpg" alt="Game 4">
+                        <img src="assets/img/hobbies/game-1.jpg" alt="Game 1">
+                        <img src="assets/img/hobbies/game-2.png" alt="Game 2">
+                        <img src="assets/img/hobbies/game-3.jpg" alt="Game 3">
+                        <img src="assets/img/hobbies/game-4.jpg" alt="Game 4">
                     </span>
                 </div>
                 <div class="hobby-card fade-in-card is-clickable" onclick="openHobbyGallery(event, this)">
@@ -587,9 +591,9 @@
                         <p>I enjoy watching shows and movies in all types and kinds. I watched a lot of anime and real action. I would say I mostly binge watch just because🤷‍♂️</p>
                     </div>
                     <span class="hobby-gallery-source media-grid shows-grid">
-                        <img src="show1.jpg" alt="Show 1">
-                        <img src="show2.jpg" alt="Show 2">
-                        <img src="show3.png" alt="Show 3">
+                        <img src="assets/img/hobbies/show-1.jpg" alt="Show 1">
+                        <img src="assets/img/hobbies/show-2.jpg" alt="Show 2">
+                        <img src="assets/img/hobbies/show-3.png" alt="Show 3">
                     </span>
                 </div>
                 <div class="hobby-card fade-in-card is-clickable table-tennis-card" onclick="playTableTennisSwing(event, this)">
@@ -607,9 +611,9 @@
                         <p>I'm thrilled (i ran out of "like" synonyms) to go on hikes with friends especially in the fall when you can crush those crunchy leaves, and enjoy the good views and food!</p>
                     </div>
                     <span class="hobby-gallery-source media-grid shows-grid">
-                        <img src="hiking1.jpg" alt="Hiking 1">
-                        <img src="hiking2.jpg" alt="Hiking 2">
-                        <img src="hiking3.jpg" alt="Hiking 3">
+                        <img src="assets/img/hobbies/hiking-1.jpg" alt="Hiking 1">
+                        <img src="assets/img/hobbies/hiking-2.jpg" alt="Hiking 2">
+                        <img src="assets/img/hobbies/hiking-3.jpg" alt="Hiking 3">
                     </span>
                 </div>
                 <div class="hobby-card fade-in-card is-clickable" onclick="openHobbyGallery(event, this)">
@@ -620,9 +624,9 @@
                         <span class="hobby-whisper">ESPICIALLY TRAVELLING, mostly travel dumps, also a lot of food</span>
                     </div>
                     <span class="hobby-gallery-source media-grid shows-grid">
-                        <img src="other1.jpg" alt="Other 1">
-                        <img src="other2.jpg" alt="Other 2">
-                        <img src="other3.jpg" alt="Other 3">
+                        <img src="assets/img/hobbies/other-1.jpg" alt="Other 1">
+                        <img src="assets/img/hobbies/other-2.jpg" alt="Other 2">
+                        <img src="assets/img/hobbies/other-3.jpg" alt="Other 3">
                     </span>
                 </div>
             </div>
@@ -652,13 +656,13 @@
                 <div class="modal-header" style="margin-top:20px; margin-bottom:20px;">
                     <h1 class="modal-title">Resume</h1>
                     <div style="margin-top: 10px;">
-                        <a href="resume.pdf" download="resume.pdf" class="youtube-btn" style="background:var(--primary-dark); font-size:0.95rem; padding:10px 22px;">
+                        <a href="assets/docs/resume.pdf" download="resume.pdf" class="youtube-btn" style="background:var(--primary-dark); font-size:0.95rem; padding:10px 22px;">
                             <i class="fas fa-download"></i> Download PDF
                         </a>
                     </div>
                 </div>
-                <!-- Direct iframe embedding of resume.pdf -->
-                <iframe src="resume.pdf" class="pdf-preview-frame" title="Resume PDF Preview"></iframe>
+                <!-- src is set by openProject() with a cache-buster so the preview is never stale -->
+                <iframe data-src="assets/docs/resume.pdf" class="pdf-preview-frame" title="Resume PDF Preview"></iframe>
             </div>
         </div>
 
@@ -666,16 +670,21 @@
         <div id="data-myscology">
             <div class="wip-mini">
                 <span class="cat-sleep-wrap">
-                    <img src="work-light.gif" alt="Cat hard at work" class="construction-cat">
+                    <img src="assets/img/ui/cat-working-light.gif" alt="Cat hard at work" class="construction-cat">
                     <span class="zzz" aria-hidden="true">z</span>
                     <span class="zzz" aria-hidden="true">z</span>
                     <span class="zzz" aria-hidden="true">z</span>
                 </span>
                 <p class="construction-note">Still cooking &mdash; the cat is on it, just taking a nap...</p>
                 <h1>Myscology Foods <span style="font-weight:600; color:var(--text-secondary);">/ Hardware Engineer</span></h1>
-                <div class="wip-role">Sept 2026 &ndash; Present</div>
+                <div class="wip-role">Generate Product Development Studio &middot; Boston, MA &middot; Sept 2026 &ndash; Present</div>
                 <div style="margin-bottom: 18px;"><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
-                <p class="wip-blurb">Myscology Foods uses solid-state fermentation to produce clean-label, nutrient-dense food ingredients. We're designing and building a self-contained benchtop fermentation unit capable of monitoring and maintaining temperature and humidity throughout multi-day incubation cycles. Through closed-loop environmental control and continuous data logging, the prototype will improve batch-to-batch consistency, reduce the need for manual intervention, and lay the groundwork for scaling the process beyond the lab.</p>
+                <p class="wip-blurb">Myscology Foods uses solid-state fermentation to produce clean-label, nutrient-dense food ingredients. We're designing and building a self-contained benchtop fermentation unit capable of monitoring and maintaining temperature and humidity throughout multi-day incubation cycles.</p>
+                <ul class="wip-bullets">
+                    <li>Developing a closed-loop temperature and humidity control system for a self-contained benchtop fermentation unit to enable continuous data collection, improve batch consistency, and support scale-up beyond the lab.</li>
+                    <li>Specifying and driving heating elements (20&ndash;95&deg;C range), PWM fans with tach feedback, and a humidifier control loop to hold chamber RH within 60&ndash;90% without drying the substrate, handling schematic capture and layout in Altium.</li>
+                    <li>Owning motor selection and sizing for substrate/microbe mixing, weighing torque and duty-cycle requirements.</li>
+                </ul>
                 <div><span class="wip-footnote"><i class="fas fa-camera"></i> Will add more details and pictures with time</span></div>
             </div>
         </div>
@@ -684,16 +693,18 @@
         <div id="data-silicon">
             <div class="wip-mini">
                 <span class="cat-sleep-wrap">
-                    <img src="work-light.gif" alt="Cat hard at work" class="construction-cat">
+                    <img src="assets/img/ui/cat-working-light.gif" alt="Cat hard at work" class="construction-cat">
                     <span class="zzz" aria-hidden="true">z</span>
                     <span class="zzz" aria-hidden="true">z</span>
                     <span class="zzz" aria-hidden="true">z</span>
                 </span>
                 <p class="construction-note">Still cooking &mdash; the cat is on it, just taking a nap...</p>
                 <h1>Silicon Team <span style="font-weight:600; color:var(--text-secondary);">/ Analog Hardware Engineer</span></h1>
-                <div class="wip-role">Sept 2026 &ndash; Present</div>
+                <div class="wip-role">Forge Club &middot; Boston, MA &middot; Sept 2026 &ndash; Present</div>
                 <div style="margin-bottom: 18px;"><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
-                <p class="wip-blurb">Owning analog transistor level schematic capture, simulation, and layout, using XSchem, NGSpice, and KLayout, as a part of 10 person mixed-signal IC design project.</p>
+                <ul class="wip-bullets">
+                    <li>Owning analog-side schematic capture, simulation, and layout for a 10-bit SAR ADC (comparator, C-DAC, reference/bias) using Cadence Virtuoso, as part of a 10-person mixed-signal IC design project.</li>
+                </ul>
                 <div><span class="wip-footnote"><i class="fas fa-camera"></i> Will add more details and pictures with time</span></div>
             </div>
         </div>
@@ -705,13 +716,13 @@
                     <h1 class="modal-title">Mira Smart Mirror</h1>
                     <div class="modal-meta"><span class="meta-tag"><i class="fas fa-microchip"></i> ESP32</span><span class="meta-tag"><i class="fas fa-code"></i> C++</span><span class="meta-tag"><i class="fas fa-user-tag"></i> Power & Hardware</span></div>
                 </div>
-                <div style="margin-bottom: 40px;"><img src="full mirror.jpg" alt="Mira" class="modal-hero-img"></div>
+                <div style="margin-bottom: 40px;"><img src="assets/img/projects/mira/full-mirror.jpg" alt="Mira" class="modal-hero-img"></div>
                 <div class="project-detail-section">
                     <div class="detail-text">
                         <div style="text-align: center;"><h3 class="modal-subtitle">The Challenge</h3></div>
                         <p class="modal-text">After a hot shower, the most annoying thing is a foggy mirror that renders itself useless. Mira actively prevents fogging through intelligent hot air circulation and automated wipers, while serving as an information hub, displaying time, weather, and date to start your day informed.</p>
                     </div>
-                    <div class="detail-image"><img src="full mirror.jpg" alt="Mira" class="project-detail-img"></div>
+                    <div class="detail-image"><img src="assets/img/projects/mira/full-mirror.jpg" alt="Mira" class="project-detail-img"></div>
                 </div>
                 <div class="project-detail-section reverse">
                     <div class="detail-text">
@@ -723,17 +734,17 @@
                             <li>Implemented relay logic to control the 12V Stepper Motors and high-power fans via code.</li>
                         </ul>
                     </div>
-                    <div class="detail-image"><img src="wiring.jpg" alt="Wiring" class="project-detail-img"></div>
+                    <div class="detail-image"><img src="assets/img/projects/mira/wiring.jpg" alt="Wiring" class="project-detail-img"></div>
                 </div>
                 <div style="margin-top: 40px;">
                     <div style="text-align: center;"><h3 class="modal-subtitle">Technical Diagrams</h3></div>
                     <p class="modal-text">From rough schematics to the final PCB layout. The system handles 12V for mechanical parts and 5V/3.3V for logic.</p>
                     <div class="tech-gallery-large">
-                        <div class="tech-gallery-item"><img src="schematics.png" alt="Schematic"><div class="caption">Circuit Schematic</div></div>
-                        <div class="tech-gallery-item"><img src="pcbLayout.png" alt="PCB"><div class="caption">PCB Layout</div></div>
+                        <div class="tech-gallery-item"><img src="assets/img/projects/mira/schematics.png" alt="Schematic"><div class="caption">Circuit Schematic</div></div>
+                        <div class="tech-gallery-item"><img src="assets/img/projects/mira/pcb-layout.png" alt="PCB"><div class="caption">PCB Layout</div></div>
                     </div>
                 </div>
-                <div class="video-wrapper"><div class="video-container"><video controls playsinline poster="full mirror.jpg"><source src="mira.mp4" type="video/mp4"></video></div></div>
+                <div class="video-wrapper"><div class="video-container"><video controls playsinline poster="assets/img/projects/mira/full-mirror.jpg"><source src="assets/media/mira-demo.mp4" type="video/mp4"></video></div></div>
             </div>
         </div>
  
@@ -760,7 +771,7 @@
         <div id="data-ecg">
             <div class="modal-inner-container">
                 <div class="modal-header"><h1 class="modal-title">ECG Monitoring System</h1><div class="modal-meta"><span class="meta-tag"><i class="far fa-calendar-alt"></i> Fall 2025</span><span class="meta-tag"><i class="fas fa-wave-square"></i> Analog Design</span><span class="meta-tag"><i class="fas fa-code"></i> MATLAB</span></div></div>
-                <img src="ECG.jpg" alt="ECG" class="project-detail-img" style="margin: 0 auto 40px auto; display: block;">
+                <img src="assets/img/projects/ecg/ecg.jpg" alt="ECG" class="project-detail-img" style="margin: 0 auto 40px auto; display: block;">
                 <div class="project-detail-section">
                     <div class="detail-text">
                         <div style="text-align: center;"><h3 class="modal-subtitle">Overview</h3></div>
@@ -780,9 +791,9 @@
                 </div>
                 <div style="text-align: center;"><h3 class="modal-subtitle">Circuit & Signal Analysis</h3></div>
                 <div class="tech-gallery">
-                    <div class="tech-gallery-item"><img src="opamp.jpg" alt="Op-Amp"><div class="caption">Analog Front-End</div></div>
-                    <div class="tech-gallery-item"><img src="ana1.png" alt="Plot"><div class="caption">Filtered Signal</div></div>
-                    <div class="tech-gallery-item"><img src="ana2.png" alt="Freq"><div class="caption">Fourier Analysis</div></div>
+                    <div class="tech-gallery-item"><img src="assets/img/projects/ecg/op-amp-front-end.jpg" alt="Op-Amp"><div class="caption">Analog Front-End</div></div>
+                    <div class="tech-gallery-item"><img src="assets/img/projects/ecg/analysis-filtered-signal.png" alt="Plot"><div class="caption">Filtered Signal</div></div>
+                    <div class="tech-gallery-item"><img src="assets/img/projects/ecg/analysis-fourier.png" alt="Freq"><div class="caption">Fourier Analysis</div></div>
                 </div>
             </div>
         </div>
@@ -798,7 +809,7 @@
                         <span class="meta-tag"><i class="fas fa-robot"></i> C++</span>
                     </div>
                 </div>
-                <img src="spider.png" alt="Spider Robot" class="project-detail-img" style="margin: 0 auto 40px auto; display: block;">
+                <img src="assets/img/projects/spider/spider-robot.png" alt="Spider Robot" class="project-detail-img" style="margin: 0 auto 40px auto; display: block;">
                 <div class="project-detail-section">
                     <div class="detail-text">
                         <div style="text-align: center;"><h3 class="modal-subtitle">Overview</h3></div>
@@ -855,11 +866,11 @@
                     </p>
                     <div class="tech-gallery-large">
                         <div class="tech-gallery-item">
-                            <img src="mcu_schematics.png" alt="MCU Schematics" style="cursor:pointer;" onclick="openImageModal('mcu_schematics.png')">
+                            <img src="assets/img/projects/river/mcu-schematics.png" alt="MCU Schematics" style="cursor:pointer;" onclick="openImageModal('assets/img/projects/river/mcu-schematics.png')">
                             <div class="caption">MCU Schematics</div>
                         </div>
                         <div class="tech-gallery-item">
-                            <img src="mcu_pcb.png" alt="PCB Layout" style="cursor:pointer;" onclick="openImageModal('mcu_pcb.png')">
+                            <img src="assets/img/projects/river/mcu-pcb-layout.png" alt="PCB Layout" style="cursor:pointer;" onclick="openImageModal('assets/img/projects/river/mcu-pcb-layout.png')">
                             <div class="caption">PCB Layout</div>
                         </div>
                     </div>
@@ -876,7 +887,7 @@
                     </ul>
                     <div class="tech-gallery" style="max-width:300px;margin:0 auto;">
                         <div class="tech-gallery-item">
-                            <img src="pcb3.png" alt="PCB 3D Render" style="cursor:pointer;" onclick="openImageModal('pcb_3d.png')">
+                            <img src="assets/img/projects/river/pcb-3d-render.png" alt="PCB 3D Render" style="cursor:pointer;" onclick="openImageModal('assets/img/projects/river/pcb-3d-render.png')">
                             <div class="caption">3D PCB Visualization</div>
                         </div>
                     </div>
@@ -897,15 +908,15 @@
                     <h3 class="modal-subtitle" style="text-align:center;margin-bottom:14px;">Project Gallery</h3>
                     <div class="tech-gallery">
                         <div class="tech-gallery-item">
-                            <img src="river_installation.png" alt="River Site Installation" style="cursor:pointer;" onclick="openImageModal('river_installation.png')">
+                            <img src="assets/img/projects/river/river-installation.png" alt="River Site Installation" style="cursor:pointer;" onclick="openImageModal('assets/img/projects/river/river-installation.png')">
                             <div class="caption">Field Installation</div>
                         </div>
                         <div class="tech-gallery-item">
-                            <img src="data_logging.png" alt="Data Logging" style="cursor:pointer;" onclick="openImageModal('data_logging.png')">
+                            <img src="assets/img/projects/river/data-logging.png" alt="Data Logging" style="cursor:pointer;" onclick="openImageModal('assets/img/projects/river/data-logging.png')">
                             <div class="caption">Web Data Logger</div>
                         </div>
                         <div class="tech-gallery-item">
-                            <img src="realpcb.png" alt="Real PCB" style="cursor:pointer;" onclick="openImageModal('realpcb.png')">
+                            <img src="assets/img/projects/river/assembled-pcb.png" alt="Real PCB" style="cursor:pointer;" onclick="openImageModal('assets/img/projects/river/assembled-pcb.png')">
                             <div class="caption">Manufactured PCB</div>
                         </div>
                     </div>
@@ -928,7 +939,7 @@
  
     <div id="cat-easter-overlay" class="cat-easter-overlay" aria-hidden="true">
         <div class="cat-easter-content">
-            <img id="cat-easter-img" src="catlol.gif" alt="Cat Easter Egg">
+            <img id="cat-easter-img" src="assets/img/ui/cat-lol.gif" alt="Cat Easter Egg">
             <p id="cat-easter-text" class="cat-easter-text">YOU FOUND ME</p>
         </div>
     </div>
@@ -938,9 +949,9 @@
             <button class="cat-vault-close" aria-label="Close cats window" onclick="closeCatVault()">×</button>
             <h3 class="cat-vault-title">if youre so stubborn here you go, meet my cats!</h3>
             <div class="cat-vault-grid">
-                <div class="cat-vault-card"><img src="cat-calico.jpg" alt="Cat photo 1" class="cat-vault-photo"></div>
-                <div class="cat-vault-card"><img src="cat-white-1.jpg" alt="Cat photo 2" class="cat-vault-photo"></div>
-                <div class="cat-vault-card"><img src="cat-white-2.jpg" alt="Cat photo 3" class="cat-vault-photo"></div>
+                <div class="cat-vault-card"><img src="assets/img/cats/cat-calico.jpg" alt="Cat photo 1" class="cat-vault-photo"></div>
+                <div class="cat-vault-card"><img src="assets/img/cats/cat-white-1.jpg" alt="Cat photo 2" class="cat-vault-photo"></div>
+                <div class="cat-vault-card"><img src="assets/img/cats/cat-white-2.jpg" alt="Cat photo 3" class="cat-vault-photo"></div>
             </div>
         </div>
     </div>
@@ -985,9 +996,9 @@
         themeToggle.addEventListener('click', () => {
             isDark = !isDark;
             document.body.classList.toggle('dark-mode');
-            if (isDark) { themeIcon.classList.replace('fa-moon', 'fa-sun'); catImg.src = "catlolz.gif"; }
-            else { themeIcon.classList.replace('fa-sun', 'fa-moon'); catImg.src = "catlol.gif"; }
-            document.querySelectorAll('.construction-cat').forEach(img => { img.src = isDark ? "work-dark.gif" : "work-light.gif"; });
+            if (isDark) { themeIcon.classList.replace('fa-moon', 'fa-sun'); catImg.src = "assets/img/ui/cat-lolz.gif"; }
+            else { themeIcon.classList.replace('fa-sun', 'fa-moon'); catImg.src = "assets/img/ui/cat-lol.gif"; }
+            document.querySelectorAll('.construction-cat').forEach(img => { img.src = isDark ? "assets/img/ui/cat-working-dark.gif" : "assets/img/ui/cat-working-light.gif"; });
         });
  
         const nameElement = document.getElementById('typing-name');
@@ -1018,13 +1029,19 @@
         const modalBodyContent = document.getElementById('modal-body-content');
         /* Projects that open in the small work-in-progress popup instead of the full page */
         const WIP_PROJECTS = ['myscology', 'silicon'];
+        /* Changes every page load, so browsers can't serve a stale cached resume.pdf */
+        const ASSET_VERSION = Date.now();
         function openProject(projectId, updateUrl = true) {
             const content = document.getElementById('data-' + projectId);
             if (content) {
                 modalBodyContent.innerHTML = content.innerHTML;
                 projectModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                
+
+                modalBodyContent.querySelectorAll('iframe[data-src]').forEach(frame => {
+                    frame.src = frame.dataset.src + '?v=' + ASSET_VERSION;
+                });
+
                 if (projectId === 'river') {
                     setTimeout(initRiverCanvas, 50);
                 }

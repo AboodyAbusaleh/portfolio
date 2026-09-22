@@ -1,0 +1,183 @@
+/* --- 1. VARIABLES & RESET --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #1a202c; /* Dark Slate */
+    --text-secondary: #718096; /* Grey */
+    --accent-blue: #3182ce;
+    --accent-purple: #805ad5;
+    --gradient: linear-gradient(135deg, #3182ce 0%, #805ad5 100%);
+    --card-bg: #f7fafc;
+    --border-color: #e2e8f0;
+    --radius: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+ul { list-style: none; }
+
+/* --- 2. NAVIGATION --- */
+nav {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
+
+/* --- 3. LAYOUT UTILITIES --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    flex: 1;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.page-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* --- 4. BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--gradient);
+    color: white;
+    border-radius: var(--radius);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+}
+.btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    margin-left: 10px;
+}
+.btn-outline:hover { background: #ebf8ff; }
+
+/* --- 5. CARDS (Experience & Projects) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 25px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    border-color: var(--accent-blue);
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.card h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.card-meta { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px; display: block; }
+.card-desc { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px; }
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+    font-size: 0.75rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: var(--text-secondary);
+}
+
+/* --- 6. FOOTER --- */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* The container holding the video */
+.local-video-container {
+    width: 100%;
+    max-width: 800px; /* Matches your text content width so it aligns perfectly */
+    margin: 30px auto; /* Centers it on the page */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Nice shadow depth */
+    line-height: 0; /* Removes annoying tiny white gap below videos */
+    background: #000;
+}
+
+/* The video tag itself */
+.local-video-container video {
+    width: 100% !important;
+    height: auto !important; /* CRITICAL: This ensures the aspect ratio stays correct */
+    display: block;
+}
+/* --- IMAGE CONTAINER --- */
+.image-container {
+    width: 100%;
+    max-width: 800px; /* Matches your video/text width */
+    margin: 30px auto; /* Centers the image */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Soft shadow */
+    border: 1px solid #e2e8f0; /* Subtle border */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto; /* Keeps the image from stretching/squishing */
+    display: block; /* Removes tiny gap at the bottom */
+}

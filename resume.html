@@ -121,7 +121,7 @@
         <div class="nav-container">
             <div class="nav-controls">
                 <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
-                <img id="cat-gif" src="catlol.gif" alt="Cat" class="cat-gif-icon">
+                <img id="cat-gif" src="assets/img/ui/cat-lol.gif" alt="Cat" class="cat-gif-icon">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -132,17 +132,21 @@
 
     <div class="pdf-wrapper">
         <div class="pdf-container">
-            <iframe src="resume.pdf" title="Resume">
+            <iframe id="resume-frame" data-src="assets/docs/resume.pdf" title="Resume">
                 <p style="text-align:center; padding: 20px; color: var(--text-secondary);">
                     Your browser does not support PDFs. 
                     <br><br>
-                    <a href="resume.pdf" style="color: var(--primary-mid); font-weight: bold;">Download the Resume</a>.
+                    <a href="assets/docs/resume.pdf" style="color: var(--primary-mid); font-weight: bold;">Download the Resume</a>.
                 </p>
             </iframe>
         </div>
     </div>
 
     <script>
+        // Load the PDF with a cache-buster so the preview is never a stale copy
+        const resumeFrame = document.getElementById('resume-frame');
+        if (resumeFrame) resumeFrame.src = resumeFrame.dataset.src + '?v=' + Date.now();
+
         // Theme Toggle Logic (Matches index.html)
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
@@ -155,10 +159,10 @@
             
             if (isDark) { 
                 themeIcon.classList.replace('fa-moon', 'fa-sun'); 
-                catImg.src = "catlolz.gif"; 
+                catImg.src = "assets/img/ui/cat-lolz.gif"; 
             } else { 
                 themeIcon.classList.replace('fa-sun', 'fa-moon'); 
-                catImg.src = "catlol.gif"; 
+                catImg.src = "assets/img/ui/cat-lol.gif"; 
             }
         });
     </script>
