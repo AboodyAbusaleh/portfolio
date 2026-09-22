@@ -1,8 +1,8 @@
 # Portfolio
 
-Personal portfolio site for Abdulrahman (Abood) Abusaleh — electrical & computer engineering
+My personal portfolio site for as an electrical & computer engineering
 student at Northeastern University. Built as a static site with plain HTML, CSS, and JavaScript
-(no frameworks, no build step) and deployed to GitHub Pages.
+(no frameworks, no build step) and deployed to GitHub Pages. HOPE YOU ENJOY IT (:
 
 **Live site:** https://aboodyabusaleh.github.io/portfolio/
 
@@ -27,9 +27,6 @@ student at Northeastern University. Built as a static site with plain HTML, CSS,
         └── ui/                 # Decorative cat GIFs, including light/dark theme variants
 ```
 
-Both pages are self-contained: CSS lives in an inline `<style>` block and JS in an inline
-`<script>` block at the bottom of each file. There is no bundler, package manager, or
-dependency install — the only external resource is the Font Awesome CDN.
 
 ## Running locally
 
