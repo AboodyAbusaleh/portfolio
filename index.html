@@ -453,7 +453,7 @@
                     <div class="project-visual"><i class="fas fa-microchip"></i></div>
                     <div class="project-content">
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 5px;"><h3 style="margin: 0;">Mixed-Signal IC Design</h3><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
-                        <p>Analog schematic capture, simulation, and layout for a 10-bit SAR ADC on a 10-person mixed-signal IC design team.</p>
+                        <p>Differential bootstrapped sample-and-hold design, simulation, and layout for a 12-bit SAR ADC on a 10-person mixed-signal IC design team.</p>
                     </div>
                     <i class="fas fa-chevron-right" style="color: var(--text-secondary);"></i>
                 </div>
@@ -687,9 +687,9 @@
                 <div style="margin-bottom: 18px;"><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
                 <p class="wip-blurb">Myscology Foods uses solid-state fermentation to produce clean-label, nutrient-dense food ingredients. We're designing and building a self-contained benchtop fermentation unit capable of monitoring and maintaining temperature and humidity throughout multi-day incubation cycles.</p>
                 <ul class="wip-bullets">
-                    <li>Developing a closed-loop temperature and humidity control system for a self-contained benchtop fermentation unit to enable continuous data collection, improve batch consistency, and support scale-up beyond the lab.</li>
-                    <li>Specifying and driving heating elements (20&ndash;95&deg;C range), PWM fans with tach feedback, and a humidifier control loop to hold chamber RH within 60&ndash;90% without drying the substrate, handling schematic capture and layout in Altium.</li>
-                    <li>Owning motor selection and sizing for substrate/microbe mixing, weighing torque and duty-cycle requirements.</li>
+                    <li>Developing a closed-loop temperature/humidity control system for a self-contained benchtop fermentation unit to enable continuous data collection, improve batch consistency, and support scale-up beyond the lab.</li>
+                    <li>Driving PTC heating elements using MOSFET power modules and level shifters, PWM fans with tach feedback, and a humidifier control loop to hold chamber RH within 60&ndash;90%, designing the Altium schematic capture and layout.</li>
+                    <li>Controlling two NEMA 17 stepper motors for balancing the substrate, driving them using A4988 motor drivers.</li>
                 </ul>
                 <div class="wip-progress">
                     <h2><i class="fas fa-camera"></i> Progress Snapshots (Altium)</h2>
@@ -717,12 +717,12 @@
                 <div class="wip-role">Forge Club &middot; Boston, MA &middot; Sept 2026 &ndash; Present</div>
                 <div style="margin-bottom: 18px;"><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
                 <ul class="wip-bullets">
-                    <li>Owning analog-side schematic capture, simulation, and layout for a 10-bit SAR ADC (comparator, C-DAC, reference/bias) using Cadence Virtuoso, as part of a 10-person mixed-signal IC design project.</li>
+                    <li>Designing the differential bootstrapped sample-and-hold analog side for a 12-bit SAR ADC, including schematic capture, simulation, and layout using Cadence Virtuoso, and defining the MOSFET sizes considering a 12.8&nbsp;pF total-capacitance CDAC.</li>
                 </ul>
                 <div class="wip-progress">
                     <h2><i class="fas fa-camera"></i> Progress Snapshot (Cadence Virtuoso)</h2>
                     <div class="wip-progress-grid">
-                        <figure><img src="assets/img/projects/sar-adc/cadence-schematic.png" alt="Cadence Virtuoso SAR ADC schematic" onclick="openImageModal(this.src)"><figcaption>Clocked switch/sampling front-end schematic for the SAR ADC</figcaption></figure>
+                        <figure><img src="assets/img/projects/sar-adc/cadence-schematic.png" alt="Cadence Virtuoso SAR ADC schematic" onclick="openImageModal(this.src)"><figcaption>Bootstrapped sample-and-hold switch schematic for the SAR ADC</figcaption></figure>
                     </div>
                 </div>
                 <div><span class="wip-footnote"><i class="fas fa-camera"></i> Will add more details and pictures with time</span></div>
