@@ -201,6 +201,12 @@
         .wip-mini .wip-bullets li { font-size: 0.97rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 12px; }
         .wip-mini .wip-bullets li:last-child { margin-bottom: 0; }
         .wip-mini .wip-bullets li::marker { color: var(--primary-mid); }
+        .wip-progress { margin-top: 26px; text-align: left; }
+        .wip-progress h2 { font-size: 1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 12px; text-align: center; }
+        .wip-progress-grid { display: grid; gap: 12px; }
+        .wip-progress figure { margin: 0; }
+        .wip-progress img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--shadow-color); box-shadow: 0 6px 15px var(--shadow-color); cursor: zoom-in; background: #fff; }
+        .wip-progress figcaption { margin-top: 6px; text-align: center; font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); }
         .wip-footnote { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 8px 16px; border-radius: 20px; background: var(--bg-page); border: 1px dashed var(--shadow-color); font-size: 0.85rem; font-style: italic; color: var(--text-secondary); }
         .hobbies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; }
         .hobby-card { background: var(--bg-card); border: 1px solid var(--shadow-color); border-radius: 14px; padding: 22px; box-shadow: 0 5px 15px var(--shadow-color); display: flex; align-items: flex-start; gap: 12px; position: relative; }
@@ -685,6 +691,14 @@
                     <li>Specifying and driving heating elements (20&ndash;95&deg;C range), PWM fans with tach feedback, and a humidifier control loop to hold chamber RH within 60&ndash;90% without drying the substrate, handling schematic capture and layout in Altium.</li>
                     <li>Owning motor selection and sizing for substrate/microbe mixing, weighing torque and duty-cycle requirements.</li>
                 </ul>
+                <div class="wip-progress">
+                    <h2><i class="fas fa-camera"></i> Progress Snapshots (Altium)</h2>
+                    <div class="wip-progress-grid">
+                        <figure><img src="assets/img/projects/myscology/top-level-hierarchy.png" alt="Top-level schematic hierarchy" onclick="openImageModal(this.src)"><figcaption>Top-level hierarchy: MCU, UI, sensors, motors, heaters &amp; fans</figcaption></figure>
+                        <figure><img src="assets/img/projects/myscology/heaters-fans-schematic.png" alt="Heaters and fans schematic" onclick="openImageModal(this.src)"><figcaption>Heater MOSFET drivers, fan connectors with SSR on/off, and logic shifters</figcaption></figure>
+                        <figure><img src="assets/img/projects/myscology/motors-schematic.png" alt="Stepper motor driver schematic" onclick="openImageModal(this.src)"><figcaption>Dual A4988 stepper drivers for mixing, plus input switch</figcaption></figure>
+                    </div>
+                </div>
                 <div><span class="wip-footnote"><i class="fas fa-camera"></i> Will add more details and pictures with time</span></div>
             </div>
         </div>
@@ -705,6 +719,12 @@
                 <ul class="wip-bullets">
                     <li>Owning analog-side schematic capture, simulation, and layout for a 10-bit SAR ADC (comparator, C-DAC, reference/bias) using Cadence Virtuoso, as part of a 10-person mixed-signal IC design project.</li>
                 </ul>
+                <div class="wip-progress">
+                    <h2><i class="fas fa-camera"></i> Progress Snapshot (Cadence Virtuoso)</h2>
+                    <div class="wip-progress-grid">
+                        <figure><img src="assets/img/projects/sar-adc/cadence-schematic.png" alt="Cadence Virtuoso SAR ADC schematic" onclick="openImageModal(this.src)"><figcaption>Clocked switch/sampling front-end schematic for the SAR ADC</figcaption></figure>
+                    </div>
+                </div>
                 <div><span class="wip-footnote"><i class="fas fa-camera"></i> Will add more details and pictures with time</span></div>
             </div>
         </div>
