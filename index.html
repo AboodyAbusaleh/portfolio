@@ -1055,6 +1055,9 @@
             const content = document.getElementById('data-' + projectId);
             if (content) {
                 modalBodyContent.innerHTML = content.innerHTML;
+                const modalScroller = modalBodyContent.parentElement;
+                modalScroller.scrollTop = 0;
+                requestAnimationFrame(() => { modalScroller.scrollTop = 0; });
                 projectModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
 
