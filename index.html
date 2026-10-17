@@ -201,6 +201,13 @@
         .wip-mini .wip-bullets li { font-size: 0.97rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 12px; }
         .wip-mini .wip-bullets li:last-child { margin-bottom: 0; }
         .wip-mini .wip-bullets li::marker { color: var(--primary-mid); }
+        .wip-backers { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
+        .wip-backed, .wip-site-link { display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px; font-size: 0.85rem; }
+        .wip-backed { background: var(--bg-page); border: 1px solid var(--shadow-color); color: var(--text-secondary); }
+        .wip-backed strong { color: var(--primary-dark); }
+        .wip-backed i { color: var(--primary-mid); }
+        .wip-site-link { border: 1px solid var(--primary-mid); color: var(--primary-mid); font-weight: 700; transition: background-color 0.2s, color 0.2s; }
+        .wip-site-link:hover { background: var(--primary-mid); color: #fff; }
         .wip-progress { margin-top: 26px; text-align: left; }
         .wip-progress h2 { font-size: 1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 12px; text-align: center; }
         .wip-progress-grid { display: grid; gap: 12px; }
@@ -501,8 +508,8 @@
                 <div class="project-card wip-card fade-in-card" onclick="openProject('myscology')">
                     <div class="project-visual"><i class="fas fa-flask"></i></div>
                     <div class="project-content">
-                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 5px;"><h3 style="margin: 0;">Myscology Foods</h3><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
-                        <p>Closed-loop temperature and humidity control for a self-contained benchtop fermentation unit at Myscology Foods.</p>
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 5px;"><h3 style="margin: 0;">Mycsology Foods</h3><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
+                        <p>Closed-loop temperature and humidity control for a self-contained benchtop fermentation unit at Mycsology Foods, a startup backed by NASA and Princeton.</p>
                     </div>
                     <i class="fas fa-chevron-right" style="color: var(--text-secondary);"></i>
                 </div>
@@ -739,10 +746,14 @@
                     <span class="zzz" aria-hidden="true">z</span>
                 </span>
                 <p class="construction-note">Still cooking &mdash; the cat is on it, just taking a nap...</p>
-                <h1>Myscology Foods <span style="font-weight:600; color:var(--text-secondary);">/ Hardware Engineer</span></h1>
+                <h1>Mycsology Foods <span style="font-weight:600; color:var(--text-secondary);">/ Hardware Engineer</span></h1>
                 <div class="wip-role">Generate Product Development Studio &middot; Boston, MA &middot; Sept 2026 &ndash; Present</div>
                 <div style="margin-bottom: 18px;"><span class="wip-badge"><i class="fas fa-hard-hat"></i> Work in Progress</span></div>
-                <p class="wip-blurb">Myscology Foods uses solid-state fermentation to produce clean-label, nutrient-dense food ingredients. We're designing and building a self-contained benchtop fermentation unit capable of monitoring and maintaining temperature and humidity throughout multi-day incubation cycles.</p>
+                <p class="wip-blurb">Mycsology Foods uses solid-state fermentation to produce clean-label, nutrient-dense food ingredients. We're designing and building a self-contained benchtop fermentation unit capable of monitoring and maintaining temperature and humidity throughout multi-day incubation cycles.</p>
+                <div class="wip-backers">
+                    <span class="wip-backed"><i class="fas fa-rocket"></i> Backed by <strong>NASA</strong> &amp; <strong>Princeton</strong></span>
+                    <a href="https://mycsology.com/" target="_blank" rel="noopener" class="wip-site-link"><i class="fas fa-arrow-up-right-from-square"></i> mycsology.com</a>
+                </div>
                 <ul class="wip-bullets">
                     <li>Developing a closed-loop temperature/humidity control system for a self-contained benchtop fermentation unit to enable continuous data collection, improve batch consistency, and support scale-up beyond the lab.</li>
                     <li>Driving PTC heating elements using MOSFET power modules and level shifters, PWM fans with tach feedback, and a humidifier control loop to hold chamber RH within 60&ndash;90%, designing the Altium schematic capture and layout.</li>
