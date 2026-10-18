@@ -756,15 +756,17 @@
                     <a href="https://mycsology.com/" target="_blank" rel="noopener" class="wip-site-link"><i class="fas fa-arrow-up-right-from-square"></i> mycsology.com</a>
                 </div>
                 <ul class="wip-bullets">
-                    <li>Developing a closed-loop temperature/humidity control system for a self-contained benchtop fermentation unit to enable continuous data collection, improve batch consistency, and support scale-up beyond the lab.</li>
-                    <li>Driving PTC heating elements using MOSFET power modules and level shifters, PWM fans with tach feedback, and a humidifier control loop to hold chamber RH within 60&ndash;90%, designing the Altium schematic capture and layout.</li>
+                    <li>Designing closed-loop temperature and humidity control for a self-contained benchtop fermenter for start-up Mycsology Foods (NASA/Princeton-backed), automating data collection to improve batch consistency and support scale-up.</li>
+                    <li>Implementing 4-pin PWM fans with tach feedback and a humidifier control loop through a water filter to hold chamber RH within 60&ndash;90% for ideal substrate growing conditions, designing the Altium schematic capture and layout.</li>
                     <li>Controlling two NEMA 17 stepper motors for balancing the substrate, driving them using A4988 motor drivers.</li>
+                    <li>Designed a 4-channel 24&nbsp;V heater power stage with 3.3&nbsp;V to 5&nbsp;V level-shifted MOSFET gate drive and TPS26632 eFuse protection, featuring latching current and power limiting with STM32 fault detection and recovery.</li>
                 </ul>
                 <div class="wip-progress">
                     <h2><i class="fas fa-camera"></i> Progress Snapshots (Altium)</h2>
                     <div class="wip-progress-grid">
                         <figure><img src="assets/img/projects/myscology/top-level-hierarchy.png" alt="Top-level schematic hierarchy" onclick="openImageModal(this.src)"><figcaption>Top-level hierarchy: MCU, UI, sensors, motors, heaters &amp; fans</figcaption></figure>
                         <figure><img src="assets/img/projects/myscology/heaters-fans-schematic.png" alt="Heaters and fans schematic" onclick="openImageModal(this.src)"><figcaption>Heater MOSFET drivers, fan connectors with SSR on/off, and logic shifters</figcaption></figure>
+                        <figure><img src="assets/img/projects/myscology/efuses-schematic.png" alt="TPS26632 eFuse schematic" onclick="openImageModal(this.src)"><figcaption>4-channel TPS26632 eFuse protection for the 24&nbsp;V heaters with fault flags to the STM32</figcaption></figure>
                         <figure><img src="assets/img/projects/myscology/motors-schematic.png" alt="Stepper motor driver schematic" onclick="openImageModal(this.src)"><figcaption>Dual A4988 stepper drivers for mixing, plus input switch</figcaption></figure>
                     </div>
                 </div>
